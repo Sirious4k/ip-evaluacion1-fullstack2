@@ -1,0 +1,163 @@
+:root {
+    --bg-primary-color: #0a0a0f;
+    --white-variant: #fefefe;
+    --bg-button: #ff005c;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+
+}
+
+/* body,
+html {
+    background-color: var(--bg-primary-color);
+} */
+
+/* general */
+
+.item-nav,
+.button-header {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+
+}
+
+.h1-header,
+.button-header,
+.item-nav,
+input {
+    color: var(--white-variant);
+
+}
+
+/* Header */
+.container-header {
+    background-image: url('/img/header-img.png');
+    background-color: rgba(10, 10, 15, 0.4);
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 150px;
+
+}
+
+.box-header {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.h1-header {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+    font-size: 64px;
+}
+
+.button-header {
+    padding: 10px 5px;
+    background-color: var(--bg-button);
+    max-width: 100%;
+    width: 200px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 900;
+    border-radius: 100px;
+}
+
+/* Nav */
+.main-nav {
+    max-height: 150px;
+    height: 150px;
+    width: 100%;
+    background-color: var(--bg-primary-color);
+    padding: 30px 30px;
+    position: fixed;
+    opacity: 0.9;
+}
+
+.container-sections-nav {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+    flex-direction: column;
+}
+
+.container-items-nav {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+/* top nav */
+.section-t-nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.top-left-nav {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+
+
+input {
+    border-radius: 100px;
+    max-width: 100%;
+    width: 500px;
+    padding: 6px 5px;
+    background-color: inherit;
+    outline: none;
+    border: 1px solid rgba(0, 255, 234, 0.3);
+    transition: border 0.3s ease-in-out;
+    font-size: 12px;
+
+
+}
+
+input:focus {
+    border: 1px solid rgba(0, 255, 234, 0.6);
+}
+
+.icons-top-bar {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.icons-nav {
+    width: 20px;
+
+}
