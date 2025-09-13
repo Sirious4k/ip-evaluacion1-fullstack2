@@ -1,7 +1,13 @@
 :root {
     --bg-primary-color: #0a0a0f;
     --white-variant: #fefefe;
+    --white-variant-hover: #ffffffb9;
+
     --bg-button: #ff005c;
+    --bg-button-hover: #c30148;
+    --bg-cards: rgba(30, 30, 47, 0.30);
+
+    --border-radius: 10px;
 }
 
 
@@ -30,15 +36,51 @@ body {
 
 }
 
-body,
+/* body,
 html {
     background-color: var(--bg-primary-color);
     scroll-behavior: smooth;
     scrollbar-width: thin;
 
+} */
+
+main {
+    flex: 1;
+    display: flex;
 }
 
 /* general */
+
+/* error form */
+
+.error {
+    color: red;
+    font-size: 12px;
+    margin-left: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+
+}
+
+input {
+    border-radius: 100px;
+    max-width: 100%;
+    width: 100%;
+    padding: 6px 5px;
+    background-color: inherit;
+    outline: none;
+    border: 1px solid rgba(0, 255, 234, 0.3);
+    transition: border 0.3s ease-in-out;
+    font-size: 14px;
+
+
+}
+
+input:focus {
+    border: 1px solid rgba(0, 255, 234, 0.6);
+}
 
 .icons-size {
     width: 20px;
@@ -47,9 +89,11 @@ html {
 
 
 .item-nav,
-.button {
+.button,
+.prefix {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
+
 }
 
 .h1-header,
@@ -57,13 +101,17 @@ html {
 .item-nav,
 input,
 p,
-h1 {
+h1,
+label,
+.prefix {
     color: var(--white-variant);
 
 }
 
 p,
-.font {
+.font,
+label,
+textarea {
     font-family: 'Roboto', sans-serif;
 }
 
@@ -81,12 +129,23 @@ h2 {
     font-size: 16px;
     font-weight: 900;
     border-radius: 100px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.button:hover {
+    background-color: var(--bg-button-hover);
+    color: var(--white-variant-hover);
+
 }
 
 .images {
     width: 400px;
 }
 
+label {
+    font-size: 16px;
+    font-weight: 600;
+}
 
 
 /* Header */
@@ -129,9 +188,6 @@ h2 {
     height: 150px;
     width: 100%;
     background-color: var(--bg-primary-color);
-    box-shadow: 0 -5px 20px 10px rgba(0, 255, 234, 0.20);
-
-
     padding: 30px 30px;
     position: fixed;
     opacity: 0.9;
@@ -152,6 +208,20 @@ h2 {
     gap: 30px;
 }
 
+.search-bar {
+    max-width: 500px;
+    width: 500px;
+}
+
+.item-nav {
+    transition: color 0.3s ease-in-out;
+    ;
+}
+
+.item-nav:hover {
+    color: rgba(0, 255, 234, 1);
+}
+
 /* top nav */
 .section-t-nav {
     display: flex;
@@ -166,23 +236,6 @@ h2 {
 
 
 
-input {
-    border-radius: 100px;
-    max-width: 100%;
-    width: 500px;
-    padding: 6px 5px;
-    background-color: inherit;
-    outline: none;
-    border: 1px solid rgba(0, 255, 234, 0.3);
-    transition: border 0.3s ease-in-out;
-    font-size: 12px;
-
-
-}
-
-input:focus {
-    border: 1px solid rgba(0, 255, 234, 0.6);
-}
 
 .icons-top-bar {
     display: flex;
@@ -194,7 +247,7 @@ input:focus {
 /* Section one  */
 
 .section-one {
-    height: auto;
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -210,9 +263,10 @@ input:focus {
     background-color: var(--bg-primary-color);
     max-width: 1400px;
     width: 100%;
-    height: 600px;
+    height: 650px;
+    ;
     padding: 50px;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     border: 1px solid rgba(0, 255, 234, 0.1);
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -220,7 +274,7 @@ input:focus {
 
 .item-section-one-left {
     border-radius: 10px 10px 0 10px;
-    background-color: var(--white-variant);
+    background-color: rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -236,7 +290,7 @@ input:focus {
 }
 
 .size-h1-section-one {
-    font-size: 38px;
+    font-size: 46px;
     margin-bottom: 100px;
 }
 
@@ -257,20 +311,22 @@ input:focus {
     display: flex;
     flex-direction: column;
     align-items: end;
-    gap: 10px
+    gap: 20px;
 }
 
 .box-especificaciones {
-    background-color: var(--white-variant);
+    background-color: rgba(0, 0, 0, 0.2);
     border-radius: 0 10px 10px 0;
-    padding: 10px 10px;
+    padding: 20px 20px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
+    color: var(--white-variant);
 }
 
 .font-size-h2-box-especifiaciones {
     font-size: 16px;
+
 }
 
 .flex-box-especifiaciones {
@@ -308,7 +364,6 @@ footer {
 /* Style Pagina Contacto */
 
 .section-contacto {
-    min-height: 85vh;
     flex: 1;
     display: flex;
     background: linear-gradient(to bottom right,
@@ -316,6 +371,8 @@ footer {
             var(--bg-primary-color),
             #080844);
     padding: 150px 0 50px 0;
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -334,6 +391,86 @@ footer {
 
 .box-contacto {
     width: 100%;
+    height: auto;
+    padding: 50px;
+    background-color: var(--bg-cards);
+    border-radius: var(--border-radius);
+}
+
+.form-contacto {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
     height: 100%;
+    gap: 20px;
+
+}
+
+.left-side-form-contacto {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.left-side-form-contacto input {
+    width: 100%;
+    padding: 10px 8px;
+}
+
+.input-phone {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.prefix {
+    padding: 10px 8px;
+    opacity: .5;
+}
+
+
+
+.right-side-form-contacto {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+
+.right-side-form-contacto textarea {
+    height: 100%;
+    border-radius: var(--border-radius);
+    background-color: var(--bg-cards);
     border: 1px solid rgba(0, 255, 234, 0.3);
+    transition: border 0.3s ease-in-out;
+    outline: none;
+    resize: none;
+    padding: 10px;
+    color: var(--white-variant);
+    font-size: 16px;
+    line-height: 1.5;
+
+
+}
+
+.right-side-form-contacto textarea:focus {
+    border: 1px solid rgba(0, 255, 234, 0.6);
+}
+
+.box-submit-buttom {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    grid-column: 2;
+}
+
+.box-submit-buttom button {
+
+    outline: none;
+    cursor: pointer;
+    border: none;
 }

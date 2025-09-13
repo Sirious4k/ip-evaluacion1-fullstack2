@@ -107,7 +107,79 @@
       <section class="section-contacto">
         <div class="width-box-contacto">
           <h1 class="margin-top-h1-contacto">¿Problemas?</h1>
-          <div class="box-contacto"></div>
+          <div class="box-contacto">
+            <!-- FORMULARIO -->
+            <form
+              action=""
+              class="form-contacto"
+              id="contactForm"
+            >
+              <div class="left-side-form-contacto">
+                <label for="nombre"
+                  >Nombre:
+                  <span
+                    class="error"
+                    id="error-nombre"
+                  ></span
+                ></label>
+                <input
+                  type="text"
+                  id="nombre"
+                />
+
+                <label for="telefono"
+                  >Telefono:
+                  <span
+                    class="error"
+                    id="error-telefono"
+                  ></span
+                ></label>
+                <div class="input-phone">
+                  <span class="prefix">+56</span>
+                  <input
+                    type="tel"
+                    id="telefono"
+                  />
+                </div>
+
+                <label for="correo"
+                  >Correo:
+                  <span
+                    class="error"
+                    id="error-correo"
+                  ></span
+                ></label>
+                <input
+                  type="email"
+                  id="correo"
+                />
+              </div>
+
+              <div class="right-side-form-contacto">
+                <label for="mensaje"
+                  >Detalla tu problema:
+                  <span
+                    class="error"
+                    id="error-mensaje"
+                  ></span
+                ></label>
+                <textarea
+                  id="mensaje"
+                  rows="5"
+                  maxlength="500"
+                ></textarea>
+              </div>
+
+              <div class="box-submit-buttom">
+                <button
+                  type="submit"
+                  class="button"
+                >
+                  Enviar
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </section>
     </main>
@@ -138,5 +210,6 @@
         </div>
       </div>
     </footer>
+    <script src="../js/js.js"></script>
   </body>
 </html>
