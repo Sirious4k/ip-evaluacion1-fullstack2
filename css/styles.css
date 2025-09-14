@@ -10,12 +10,11 @@
     --border-radius: 10px;
 }
 
-
+/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
 ul,
@@ -28,40 +27,25 @@ a {
     color: inherit;
 }
 
+/* Body */
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     width: 100%;
-
 }
-
-/* body,
-html {
-    background-color: var(--bg-primary-color);
-    scroll-behavior: smooth;
-    scrollbar-width: thin;
-
-} */
 
 main {
     flex: 1;
     display: flex;
 }
 
-/* general */
-
-/* error form */
-
-.error {
-    color: red;
-    font-size: 12px;
-    margin-left: 5px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-
+/* General */
+h1,
+h2,
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--white-variant);
 }
 
 h1 {
@@ -76,20 +60,44 @@ h2 {
 h3 {
     font-size: 20px;
     color: rgba(0, 255, 234, 1);
+}
 
+p,
+.font,
+label,
+textarea {
+    font-family: 'Roboto', sans-serif;
+    color: var(--white-variant);
 }
 
 p {
     font-size: 16px;
 }
 
+input,
+.button,
+.item-nav,
+.prefix,
+.h1-header,
 h1,
-h2,
-h3 {
-    font-family: 'Montserrat', sans-serif;
+h2 {
+    color: var(--white-variant);
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
 }
 
+/* Error form */
+.error {
+    color: red;
+    font-size: 12px;
+    margin-left: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
 
+/* Inputs */
 input {
     border-radius: 100px;
     max-width: 100%;
@@ -100,64 +108,33 @@ input {
     border: 1px solid rgba(0, 255, 234, 0.3);
     transition: border 0.3s ease-in-out;
     font-size: 14px;
-
-
 }
 
 input:focus {
     border: 1px solid rgba(0, 255, 234, 0.6);
 }
 
-.icons-size {
-    width: 20px;
-
-}
-
-
-.item-nav,
-.button,
-.prefix {
-    font-family: 'Roboto', sans-serif;
+label {
     font-size: 16px;
-
+    font-weight: 600;
 }
 
-.h1-header,
-.button,
-.item-nav,
-input,
-p,
-h1,
-label,
-.prefix,
-h2 {
-    color: var(--white-variant);
-
-}
-
-p,
-.font,
-label,
-textarea {
-    font-family: 'Roboto', sans-serif;
-}
-
+/* Format Text */
 .format-text {
     color: #969696;
     font-size: 18px;
     white-space: normal;
     text-wrap: pretty;
     line-height: 1.5;
-
 }
 
+/* Button */
 .button {
     padding: 10px 5px;
     background-color: var(--bg-button);
     max-width: 100%;
     width: 200px;
     text-align: center;
-    font-size: 16px;
     font-weight: 900;
     border-radius: 100px;
     cursor: pointer;
@@ -168,16 +145,15 @@ textarea {
 .button:hover {
     background-color: var(--bg-button-hover);
     color: var(--white-variant-hover);
+}
 
+/* Utilidad */
+.icons-size {
+    width: 20px;
 }
 
 .images {
     width: 400px;
-}
-
-label {
-    font-size: 16px;
-    font-weight: 600;
 }
 
 .width-box {
@@ -192,7 +168,7 @@ label {
 
 /* Header */
 .container-header {
-    background-image: url('/img/header-img.png');
+    background-image: url('../img/header-img.png');
     background-color: rgba(10, 10, 15, 0.4);
     background-blend-mode: multiply;
     background-size: cover;
@@ -203,7 +179,6 @@ label {
     justify-content: flex-start;
     align-items: center;
     padding-top: 150px;
-
 }
 
 .box-header {
@@ -221,8 +196,6 @@ label {
     font-weight: bolder;
     font-size: 64px;
 }
-
-
 
 /* Nav */
 .main-nav {
@@ -264,7 +237,6 @@ label {
     color: rgba(0, 255, 234, 1);
 }
 
-/* top nav */
 .section-t-nav {
     display: flex;
     justify-content: space-between;
@@ -276,15 +248,17 @@ label {
     width: 100%;
 }
 
-
-
 .icons-top-bar {
     display: flex;
     flex-direction: row;
     gap: 20px;
 }
 
-/* Dropdown oculto por defecto */
+/* Dropdown */
+.nav-item {
+    position: relative;
+}
+
 .nav-item .dropdown {
     display: none;
     position: absolute;
@@ -292,12 +266,20 @@ label {
     left: 0;
     background-color: var(--bg-primary-color);
     opacity: 0.93;
-    padding: 0 0;
+    padding: 0;
     margin-top: 10px;
     border-radius: 6px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     min-width: 200px;
     z-index: 100;
+}
+
+.nav-item .dropdown.show {
+    display: block;
+}
+
+.dropdown li {
+    margin: px 0;
 }
 
 .items-dropdown {
@@ -308,18 +290,11 @@ label {
     min-width: 100%;
     padding: 8px 20px;
     display: flex;
-
-}
-
-.dropdown li {
-    margin: px 0;
 }
 
 .items-dropdown:hover {
     color: var(--bg-primary-color);
     background-color: rgba(0, 255, 234, 0.6);
-
-
 }
 
 .first-item {
@@ -330,42 +305,42 @@ label {
     border-radius: 0 0 6px 6px;
 }
 
+/* Section */
 
-
-
-/* Clase que mostraremos con JS */
-.nav-item .dropdown.show {
-    display: block;
-}
-
-/* Para que nav-item tenga posición relativa */
-.nav-item {
-    position: relative;
-}
-
-
-
-/* Section one  */
-
-.section-one {
+.section-contacto,
+.section-one,
+.section-nosotros,
+.section-computadoras,
+.section-consoles {
     flex: 1;
     display: flex;
-    justify-content: center;
-    align-items: center;
     background: linear-gradient(to bottom right,
             var(--bg-primary-color),
             var(--bg-primary-color),
             #080844);
+    justify-content: center;
+    align-items: center;
+}
+
+.section-one {
     padding: 150px;
 }
 
+.section-contacto {
+    padding: 150px 0 0px 0;
+}
+
+.section-nosotros,
+.section-computadoras,
+.section-consoles {
+    padding: 200px 0 50px 0;
+}
 
 .container-items-section-one {
     background-color: var(--bg-primary-color);
     max-width: 1400px;
     width: 100%;
     height: 650px;
-    ;
     padding: 50px;
     border-radius: var(--border-radius);
     border: 1px solid rgba(0, 255, 234, 0.1);
@@ -427,7 +402,6 @@ label {
 
 .font-size-h2-box-especifiaciones {
     font-size: 16px;
-
 }
 
 .flex-box-especifiaciones {
@@ -437,8 +411,7 @@ label {
     gap: 20px;
 }
 
-/* footer */
-
+/* Footer */
 footer {
     height: 150px;
     background-color: var(--bg-primary-color);
@@ -461,21 +434,11 @@ footer {
     gap: 20px;
 }
 
-/* ---------------------------------------------------------------- */
-/* Style Pagina Contacto */
-
-.section-contacto {
-    flex: 1;
-    display: flex;
-    background: linear-gradient(to bottom right,
-            var(--bg-primary-color),
-            var(--bg-primary-color),
-            #080844);
-    padding: 200px 0 50px 0;
-}
-
-
-.margin-top-h1-contacto {
+/* Contacto */
+.margin-top-h1-contacto,
+.margin-top-h1-aboutus,
+.margin-top-h1-computadores,
+.margin-top-h1-consoles {
     margin: 50px 0;
     text-align: center;
     font-size: 48px;
@@ -495,7 +458,6 @@ footer {
     width: 100%;
     height: 100%;
     gap: 20px;
-
 }
 
 .left-side-form-contacto {
@@ -522,16 +484,12 @@ footer {
     opacity: .5;
 }
 
-
-
 .right-side-form-contacto {
     display: flex;
     width: 100%;
     flex-direction: column;
     gap: 20px;
 }
-
-
 
 .right-side-form-contacto textarea {
     height: 100%;
@@ -545,8 +503,6 @@ footer {
     color: var(--white-variant);
     font-size: 16px;
     line-height: 1.5;
-
-
 }
 
 .right-side-form-contacto textarea:focus {
@@ -561,52 +517,29 @@ footer {
 }
 
 .box-submit-buttom button {
-
     outline: none;
     cursor: pointer;
     border: none;
 }
 
-/* Nosotros  */
-
-.margin-top-h1-aboutus {
-    margin: 50px 0;
-    text-align: center;
-    font-size: 48px;
-}
-
-.section-nosotros {
-    flex: 1;
-    display: flex;
-    background: linear-gradient(to bottom right,
-            var(--bg-primary-color),
-            var(--bg-primary-color),
-            #080844);
-    padding: 200px 0 50px 0;
-    justify-content: center;
-    align-items: center;
-
-
-}
-
-.box-aboutus {
+/* Nosotros */
+.section-nosotros .box-aboutus,
+.section-computadoras .box-computadores,
+.section-consoles .box-consoles {
     width: 100%;
-    height: auto;
+    height: 100%;
     padding: 50px;
     gap: 50px;
     display: flex;
     flex-direction: column;
     background-color: var(--bg-cards);
     border-radius: var(--border-radius);
-
 }
 
 .icon-faces-aboutus {
     max-width: 150px;
     max-height: 150px;
     overflow: hidden;
-
-
 }
 
 .image-fundadores {
@@ -620,8 +553,6 @@ footer {
     display: flex;
     justify-content: space-evenly;
     margin-top: 50px;
-
-
 }
 
 .box-icons-fundadores-item {
@@ -632,50 +563,13 @@ footer {
     max-width: 300px;
     height: 100%;
     text-align: center;
-
 }
 
-/* Computadoras Consolas */
-
-.section-computadoras,
-.section-consoles {
-    flex: 1;
-    display: flex;
-    background: linear-gradient(to bottom right,
-            var(--bg-primary-color),
-            var(--bg-primary-color),
-            #080844);
-    padding: 200px 0 50px 0;
-    justify-content: center;
-    align-items: center;
-
-
-}
-
-.margin-top-h1-computadores,
-.margin-top-h1-consoles {
-    margin: 50px 0;
-    text-align: center;
-    font-size: 48px;
-}
-
+/* Computadoras / Consolas */
 .h2-items-computadores,
 .h2-items-consoles {
-    margin-bottom: 0px;
     margin-top: 20px;
-}
-
-.box-computadores,
-.box-consoles {
-    width: 100%;
-    height: auto;
-    padding: 50px;
-    gap: 50px;
-    display: flex;
-    flex-direction: column;
-    background-color: var(--bg-cards);
-    border-radius: var(--border-radius);
-
+    margin-bottom: 0;
 }
 
 .box-items-comptuadores,
@@ -692,9 +586,8 @@ footer {
 .item-consoles {
     display: flex;
     flex-direction: column;
-    height: 600px;
+    min-height: 500px;
     flex: 1;
-
 }
 
 .box-image-item-computadores,
@@ -702,11 +595,9 @@ footer {
     width: 100%;
     min-height: 300px;
     max-height: 300px;
-
     overflow: hidden;
     background-color: white;
     border-radius: 10px;
-
 }
 
 .image-item-computadores,
@@ -728,7 +619,6 @@ footer {
     justify-content: start;
     margin: 20px 0;
 }
-
 
 .box-button {
     width: 100%;

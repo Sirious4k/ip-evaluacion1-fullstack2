@@ -8,8 +8,9 @@
     />
     <link
       rel="stylesheet"
-      href="/css/styles.css"
+      href="../css/styles.css"
     />
+
     <!-- Fonts -->
     <link
       rel="preconnect"
@@ -25,116 +26,110 @@
       rel="stylesheet"
     />
     <!-- Termino Fonts -->
-    <title>Document</title>
+
+    <title>Contacto</title>
   </head>
   <body class="body-contacto-page">
-    <!-- Header - Nav -->
-    <nav class="main-nav">
-      <section class="container-sections-nav">
-        <div class="section-t-nav">
-          <div class="top-left-nav">
-            <img
-              src=""
-              alt="logo"
-            />
-            <form
-              action="/buscar"
-              method="GET"
-              class="search-bar"
-            >
-              <input
-                type="search"
-                name="q"
-              />
-            </form>
-          </div>
-
-          <!-- Iconos Nav derecha -->
-          <div class="icons-top-bar">
-            <a href="">
-              <img
-                src="/img/icon-nav-cart.svg"
-                alt=""
-                class="icons-size"
-              />
-            </a>
-            <a href="">
-              <img
-                src="/img/icon-nav-user.svg"
-                alt=""
-                class="icons-size"
-              />
-            </a>
-          </div>
-        </div>
-        <!-- Links NAV  -->
-        <ul class="container-items-nav">
-          <li>
-            <a
-              href="/index.html"
-              class="item-nav"
-              >Inicio</a
-            >
-          </li>
-          <li>
-            <a
-              href=""
-              class="item-nav"
-              >Nuevo</a
-            >
-          </li>
-          <li class="nav-item">
-            <p
-              href=""
-              class="item-nav"
-            >
-              Categoria
-            </p>
-            <ul class="dropdown">
-              <li>
-                <a
-                  href="computadoras.html"
-                  class="items-dropdown first-item"
-                  >Computadors</a
-                >
-              </li>
-              <li>
-                <a
-                  href="consolas.html"
-                  class="items-dropdown"
-                  >Consolas</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="items-dropdown last-item"
-                  >Perifericos</a
-                >
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a
-              href="contacto.html"
-              class="item-nav"
-            >
-              Contacto</a
-            >
-          </li>
-          <li>
-            <a
-              href="aboutUs.html"
-              class="item-nav"
-              >Nosotros</a
-            >
-          </li>
-        </ul>
-      </section>
-    </nav>
     <!-- HEADER -->
+    <header>
+      <nav class="main-nav">
+        <section class="container-sections-nav">
+          <div class="section-t-nav">
+            <div class="top-left-nav">
+              <img
+                src=""
+                alt="logo"
+              />
+              <form class="search-bar">
+                <input
+                  type="search"
+                  name=""
+                />
+              </form>
+            </div>
 
-    <!-- Main section -->
+            <!-- Iconos Nav derecha -->
+            <div class="icons-top-bar">
+              <a href="">
+                <img
+                  src="../img/icon-nav-cart.svg"
+                  alt=""
+                  class="icons-size"
+                />
+              </a>
+              <a href="">
+                <img
+                  src="../img/icon-nav-user.svg"
+                  alt=""
+                  class="icons-size"
+                />
+              </a>
+            </div>
+          </div>
+
+          <!-- Links NAV -->
+          <ul class="container-items-nav">
+            <li>
+              <a
+                href="../index.html"
+                class="item-nav"
+                >Inicio</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="item-nav"
+                >Nuevo</a
+              >
+            </li>
+            <li class="nav-item">
+              <p class="item-nav">Categoria</p>
+              <ul class="dropdown">
+                <li>
+                  <a
+                    href="computadoras.html"
+                    class="items-dropdown first-item"
+                    >Computadors</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="consolas.html"
+                    class="items-dropdown"
+                    >Consolas</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="items-dropdown last-item"
+                    >Perifericos</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a
+                href="contacto.html"
+                class="item-nav"
+                >Contacto</a
+              >
+            </li>
+            <li>
+              <a
+                href="aboutUs.html"
+                class="item-nav"
+                >Nosotros</a
+              >
+            </li>
+          </ul>
+        </section>
+      </nav>
+    </header>
+    <!-- Termino Header -->
+
+    <!-- MAIN -->
     <main>
       <section class="section-contacto">
         <div class="width-box">
@@ -147,25 +142,25 @@
               id="contactForm"
             >
               <div class="left-side-form-contacto">
-                <label for="nombre"
-                  >Nombre:
+                <label for="nombre">
+                  Nombre:
                   <span
                     class="error"
                     id="error-nombre"
-                  ></span
-                ></label>
+                  ></span>
+                </label>
                 <input
                   type="text"
                   id="nombre"
                 />
 
-                <label for="telefono"
-                  >Telefono:
+                <label for="telefono">
+                  Telefono:
                   <span
                     class="error"
                     id="error-telefono"
-                  ></span
-                ></label>
+                  ></span>
+                </label>
                 <div class="input-phone">
                   <span class="prefix">+56</span>
                   <input
@@ -174,13 +169,13 @@
                   />
                 </div>
 
-                <label for="correo"
-                  >Correo:
+                <label for="correo">
+                  Correo:
                   <span
                     class="error"
                     id="error-correo"
-                  ></span
-                ></label>
+                  ></span>
+                </label>
                 <input
                   type="email"
                   id="correo"
@@ -188,13 +183,13 @@
               </div>
 
               <div class="right-side-form-contacto">
-                <label for="mensaje"
-                  >Detalla tu problema:
+                <label for="mensaje">
+                  Detalla tu problema:
                   <span
                     class="error"
                     id="error-mensaje"
-                  ></span
-                ></label>
+                  ></span>
+                </label>
                 <textarea
                   id="mensaje"
                   rows="5"
@@ -215,6 +210,9 @@
         </div>
       </section>
     </main>
+    <!-- Termino Main -->
+
+    <!-- FOOTER -->
     <footer>
       <div class="container-footer">
         <div class="container-logo">
@@ -227,21 +225,26 @@
           <p>2025 Ningun derecho reservado</p>
         </div>
         <div class="redes-footer-container">
-          <a href=""
-            ><img
-              src="/img/logo-discord.png"
+          <a href="">
+            <img
+              src="../img/logo-discord.png"
               alt=""
               class="icons-size"
-          /></a>
-          <a href=""
-            ><img
-              src="/img/logo-insta.png"
+            />
+          </a>
+          <a href="">
+            <img
+              src="../img/logo-insta.png"
               alt=""
               class="icons-size"
-          /></a>
+            />
+          </a>
         </div>
       </div>
     </footer>
+    <!-- Termino Footer -->
+
+    <!-- Script -->
     <script src="../js/js.js"></script>
   </body>
 </html>
