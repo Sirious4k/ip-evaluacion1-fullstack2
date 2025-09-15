@@ -3,8 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const nombre = document.getElementById('nombre');
   const telefono = document.getElementById('telefono');
   const correo = document.getElementById('correo');
-  const mensaje = document.getElementById('mensaje');
   const categoriaItem = document.querySelector('.nav-item');
+  const maxCaracteres = 20;
+
 
   // DROPDOWN NAV
   if(categoriaItem) {
@@ -21,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // VALIDACIÓN FORM
-  const maxCaracteres = 20;
   if(nombre) {
     nombre.addEventListener('input', () => {
       if(nombre.value.length > maxCaracteres) {
@@ -58,9 +58,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if(correo.value.trim() === '') {
         document.getElementById('error-correo').textContent = 'Debe ingresar su correo';
         isValid = false;
-      } else if(!/\S+@\S+\.\S+/.test(correo.value)) {
-        document.getElementById('error-correo').textContent = 'Correo inválido';
-        isValid = false;
+      } else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo.value.trim())) {
+          document.getElementById('error-correo').textContent = 'Correo inválido';
+          isValid = false;
       }
 
       if(isValid) {
