@@ -1,12 +1,18 @@
 import logo from './images/logo.svg';
 import './App.css';
+import Titulox from './components/titulox'
 
 function App() {
+  const styles = {
+    parrafo : 'p-20 text-black' ,
+  }
   return (
-    <div className="App">
+     <div className="App">
+
+    <Titulox/>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
+        <p className={styles.parrafo}>
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <a
@@ -19,6 +25,7 @@ function App() {
         </a>
       </header>
     </div>
+   
   );
 }
 
