@@ -25,7 +25,7 @@ function Nav() {
 
 
   const styles = {
-    mainNav: 'min-h-auto h-auto w-full sticky  opacity-95 bg-[var(--bg-cards-color)] !p-[30px] ',
+    mainNav: 'min-h-auto h-auto w-full sticky top-0 opacity-95 bg-[var(--bg-cards-color)] !p-[30px] ',
 
     containerSectionsNav: 'h-full w-full lg:max-w-[1400px] !mx-auto flex-col flex gap-[20px]',
 
@@ -34,7 +34,7 @@ function Nav() {
     iconsTopNav: 'flex flex-col gap-[20px]',
 
     // Items Nav
-    containerItemsNav: 'flex gap-[20px] lg:text-[2rem] text-[1.2rem]',
+    containerItemsNav: 'flex gap-[20px] lg:text-[2rem] text-[1.5rem]',
     itemsHover: 'text-white hover:text-[#00ffea]/90 transition-colors duration-300 ease-in-out',
 
     //dropdown
