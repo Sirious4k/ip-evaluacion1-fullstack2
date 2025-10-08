@@ -56,6 +56,17 @@ a {
   font-weight: 100;
 }
 
+.section-titles {
+  font-size: 3rem;
+}
+
+@media (min-width: 640px) {
+  .section-titles {
+    font-size: 5rem;
+  }
+
+}
+
 .max-width {
   max-width: 1400px;
   margin: 0 auto;
