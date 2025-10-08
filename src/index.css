@@ -18,7 +18,8 @@
 
 
 /* General */
-* {
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -48,6 +49,11 @@ li {
   font-weight: 100;
 }
 
+.max-width {
+  max-width: 1400px;
+  margin: 0 auto;
+  ;
+}
 
 /* Iconos */
 .icon-size {
@@ -61,12 +67,4 @@ li {
     width: 3.5rem;
     height: 3.5rem;
   }
-}
-
-
-/* Logo */
-.logo-size {
-  width: 8rem;
-  height: auto;
-  color: white
 }
