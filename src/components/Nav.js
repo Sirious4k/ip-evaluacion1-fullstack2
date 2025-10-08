@@ -46,37 +46,35 @@ function Nav() {
     <nav className={styles.mainNav}>
       <section className={styles.containerSectionsNav}>
         <div className={styles.sectionTopNav}>
-          <a href='#'>
+          <a href='index.html'>
             <Logo className='logo-size' />
           </a>
           <div className={styles.iconsTopNav}>
             {/* // Falta definir enlace  */}
-            <a href='#'>
+            <a href='../pages/InicioSecion.js'>
               <UserIcon className='icon-size' />
             </a>
           </div>
         </div>
         <ul className={styles.containerItemsNav} >
           <li className={styles.itemsHover}>
-            <a>Inicio</a>
+            <a href='index.html'>Inicio</a>
           </li>
-          <li className={styles.itemsHover}>
-            <a>Nuevo</a>
-          </li>
+
           <li className='relative' ref={dropdownRef}>
             <p onClick={toggleDropdown} className={styles.itemsHover}>Categoria</p>
             {dropdownOpen && (
               <ul className={styles.dropdown}>
-                <li className={styles.dropdownItem}><a>Computadores</a></li>
-                <li className={styles.dropdownItem}><a>Consolas</a></li>
+                <li className={styles.dropdownItem}><a href='../pages/Computadores.js'>Computadores</a></li>
+                <li className={styles.dropdownItem}><a href='../pages/Consolas.js'>Consolas</a></li>
               </ul>
             )}
           </li>
           <li className={styles.itemsHover}>
-            <a>Contacto</a>
+            <a href='../pages/Contacto.js'>Contacto</a>
           </li>
           <li className={styles.itemsHover}>
-            <a>Nosotros</a>
+            <a href='../pages/Nosotros.js'>Nosotros</a>
           </li>
         </ul >
 
