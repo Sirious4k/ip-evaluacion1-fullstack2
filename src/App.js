@@ -1,6 +1,6 @@
-import logo from './images/logo.svg';
-import './App.css';
-import Titulox from './components/titulox'
+import logo from './assets/images/logo.svg';
+import './index.css'
+import Nav from './components/Nav'
 
 function App() {
   const styles = {
@@ -8,9 +8,8 @@ function App() {
   }
   return (
      <div className="App">
-
-    <Titulox/>
-      <header className="App-header">
+      <header className="App-header relative">
+         <Nav/>
         <img src={logo} className="App-logo" alt="logo" />
         <p className={styles.parrafo}>
           Edit <code>src/App.js</code> and save to reload.
