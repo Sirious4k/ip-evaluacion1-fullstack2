@@ -1,7 +1,7 @@
 import '../index.css'
 import { useState, useEffect, useRef } from 'react';
 import { ReactComponent as UserIcon } from '../assets/icons/icon-nav-user.svg'
-import { ReactComponent as Logo } from '../assets/icons/logo.svg'
+import LogoComponent from './LogoComponent'
 
 function Nav() {
 
@@ -25,30 +25,28 @@ function Nav() {
 
 
   const styles = {
-    mainNav: 'min-h-auto h-auto w-full sticky  opacity-95 bg-[var(--bg-cards-color)] !p-[30px] ',
+    mainNav: 'min-h-16 md:min-h-20 w-full fixed  top-0 bg-[var(--bg-primary-color)] p-8 ',
 
-    containerSectionsNav: 'h-full w-full lg:max-w-[1400px] !mx-auto flex-col flex gap-[20px]',
+    containerSectionsNav: 'h-full w-full max-width flex-col flex gap-[20px]',
 
     // Top Nav
     sectionTopNav: 'flex justify-between items-center w-full',
     iconsTopNav: 'flex flex-col gap-[20px]',
 
     // Items Nav
-    containerItemsNav: 'flex gap-[20px] lg:text-[2rem] text-[1.2rem]',
+    containerItemsNav: 'flex gap-[20px] lg:text-[2rem] text-[1.5rem]',
     itemsHover: 'text-white hover:text-[#00ffea]/90 transition-colors duration-300 ease-in-out',
 
     //dropdown
-    dropdown: 'absolute !mt-5 bg-[var(--bg-cards-color)] border border-[#00ffea]/50 shadow-lg list-none  ',
-    dropdownItem: '!px-6 !py-2 hover:bg-[#00ffea1a] text-white'
+    dropdown: 'absolute mt-5 bg-[var(--bg-primary-color)] border border-[#00ffea]/50 shadow-lg list-none  ',
+    dropdownItem: 'px-6 py-2 hover:bg-[#00ffea1a] text-white'
   }
 
   return (
     <nav className={styles.mainNav}>
       <section className={styles.containerSectionsNav}>
         <div className={styles.sectionTopNav}>
-          <a href='index.html'>
-            <Logo className='logo-size' />
-          </a>
+          <LogoComponent />
           <div className={styles.iconsTopNav}>
             {/* // Falta definir enlace  */}
             <a href='../pages/InicioSecion.js'>
