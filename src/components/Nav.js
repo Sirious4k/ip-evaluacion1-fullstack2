@@ -25,7 +25,7 @@ function Nav() {
 
 
   const styles = {
-    mainNav: 'min-h-16 md:min-h-20 w-full sticky top-0 bg-[var(--bg-cards-color)] p-[20px] lg:px-0',
+    mainNav: 'min-h-16 md:min-h-20 w-full fixed  top-0 bg-[var(--bg-primary-color)] p-8 ',
 
     containerSectionsNav: 'h-full w-full max-width flex-col flex gap-[20px]',
 
@@ -38,7 +38,7 @@ function Nav() {
     itemsHover: 'text-white hover:text-[#00ffea]/90 transition-colors duration-300 ease-in-out',
 
     //dropdown
-    dropdown: 'absolute mt-5 bg-[var(--bg-cards-color)] border border-[#00ffea]/50 shadow-lg list-none  ',
+    dropdown: 'absolute mt-5 bg-[var(--bg-primary-color)] border border-[#00ffea]/50 shadow-lg list-none  ',
     dropdownItem: 'px-6 py-2 hover:bg-[#00ffea1a] text-white'
   }
 

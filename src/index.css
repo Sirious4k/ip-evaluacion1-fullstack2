@@ -4,8 +4,8 @@
 
 
 :root {
-  --bg-primary-color: #fefefe;
-  --bg-cards-color: #0a0a0f;
+  --bg-primary-color: #0a0a0f;
+  --bg-cards-color: #fefefe;
   --white-variant: #fefefe;
   --white-variant-hover: #ffffffb9;
   --grey: #969696;
@@ -43,8 +43,15 @@ li {
 
 /* Fonts*/
 
+h1,
+h2,
+h3 {
+  font-family: 'Montserrat';
+}
+
 p,
-li {
+li,
+a {
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
 }
@@ -52,7 +59,6 @@ li {
 .max-width {
   max-width: 1400px;
   margin: 0 auto;
-  ;
 }
 
 /* Iconos */
