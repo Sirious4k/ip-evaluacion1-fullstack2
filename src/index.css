@@ -43,6 +43,13 @@ li {
 
 }
 
+.scrollbar-thin {
+  scrollbar-width: thin;
+  /* Para Firefox */
+  scrollbar-color: #888 transparent;
+  /* Color de la barra y fondo */
+}
+
 /* Fonts*/
 
 h1,
@@ -95,4 +102,13 @@ a {
     width: 3.5rem;
     height: 3.5rem;
   }
+}
+
+/* Items image size */
+
+.size-items {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
