@@ -7,6 +7,7 @@ function LogoComponent() {
 
         logoSize: 'w-[8rem] h-auto'
     }
+
     return (
         <div className={styles.containerLogo}>
             <a href='index.html'>

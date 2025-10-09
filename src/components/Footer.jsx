@@ -4,18 +4,18 @@ import DiscordIcon from '../assets/icons/logo-discord.svg?react'
 import InstagramIcon from '../assets/icons/logo-insta.svg?react'
 
 function Footer() {
-
     const styles = {
-        containerFooter: 'max-width w-full  h-auto grid grid-cols-[repeat(3,1fr)] p-8  text-white',
+        containerFooter: 'grid grid-cols-[repeat(3,1fr)] w-full h-auto p-8 max-width text-white',
 
         // centro
         derechosStyle: 'flex justify-center items-end text-center',
 
         //derecha
-        redesContainer: 'w-full flex justify-end gap-[20px]'
+        redesContainer: 'flex w-full justify-end gap-[20px]'
     }
+
     return (
-        < footer className='bg-[var(--bg-primary-color)] min-h-16 md:min-h-20' >
+        < footer className='bg-[var(--bg-primary-color)] min-h-16 md:min-h-20 shrink-0' >
             <div className={styles.containerFooter}>
                 <LogoComponent />
                 <div className={styles.derechosStyle}>

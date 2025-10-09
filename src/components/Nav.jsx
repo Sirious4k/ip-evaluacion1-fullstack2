@@ -2,6 +2,8 @@ import '../index.css'
 import { useState, useEffect, useRef } from 'react';
 import LogoComponent from './LogoComponent'
 import IconUser from '../assets/icons/icon-nav-user.svg?react';
+import { Link } from 'react-router-dom';
+
 
 function Nav() {
 
@@ -25,21 +27,21 @@ function Nav() {
 
 
   const styles = {
-    mainNav: 'min-h-16 md:min-h-20 w-full fixed  top-0 bg-[var(--bg-primary-color)] p-8 z-100',
+    mainNav: 'fixed w-full min-h-16 md:min-h-20 top-0 p-8 bg-[var(--bg-primary-color)] z-100',
 
-    containerSectionsNav: 'h-full w-full max-width flex-col flex gap-[20px]',
+    containerSectionsNav: 'flex flex-col w-full h-full max-width gap-[20px]',
 
     // Top Nav
     sectionTopNav: 'flex justify-between items-center w-full',
     iconsTopNav: 'flex flex-col gap-[20px]',
 
     // Items Nav
-    containerItemsNav: 'flex gap-[20px] lg:text-[2rem] text-[1.5rem]',
-    itemsHover: 'text-white hover:text-[#00ffea]/90 transition-colors duration-300 ease-in-out',
+    containerItemsNav: 'flex gap-[20px] text-[1.5rem] lg:text-[2rem]',
+    itemsHover: 'text-white transition-colors duration-300 ease-in-out hover:text-[#00ffea]/90',
 
     //dropdown
-    dropdown: 'absolute mt-5 bg-[var(--bg-primary-color)] border border-[#00ffea]/50 shadow-lg list-none  ',
-    dropdownItem: 'px-6 py-2 hover:bg-[#00ffea1a] text-white'
+    dropdown: 'absolute mt-5 bg-[var(--bg-primary-color)] border border-[#00ffea]/50 shadow-lg list-none',
+    dropdownItem: 'px-6 py-2 text-white hover:bg-[#00ffea1a]'
   }
 
   return (
@@ -56,7 +58,7 @@ function Nav() {
         </div>
         <ul className={styles.containerItemsNav} >
           <li className={styles.itemsHover}>
-            <a href='index.html'>Inicio</a>
+            <Link to='/'>Inicio</Link>
           </li>
 
           <li className='relative' ref={dropdownRef}>
@@ -69,13 +71,12 @@ function Nav() {
             )}
           </li>
           <li className={styles.itemsHover}>
-            <a href='../pages/Contacto.js'>Contacto</a>
+            <a href='../pages/Contacto.jsx'>Contacto</a>
           </li>
           <li className={styles.itemsHover}>
-            <a href='../pages/Nosotros.js'>Nosotros</a>
+            <Link to='/nosotros'>Nosotros</Link>
           </li>
         </ul >
-
       </section >
     </nav >
   );
