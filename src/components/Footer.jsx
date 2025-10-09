@@ -1,7 +1,7 @@
 import '../index.css'
-import LogoComponent from './LogoComponent'
-import { ReactComponent as DiscordIcon } from '../assets/icons/logo-discord.svg'
-import { ReactComponent as InstagramIcon } from '../assets/icons/logo-insta.svg'
+import LogoComponent from './LogoComponent.jsx'
+import DiscordIcon from '../assets/icons/logo-discord.svg?react'
+import InstagramIcon from '../assets/icons/logo-insta.svg?react'
 
 function Footer() {
 
@@ -24,13 +24,13 @@ function Footer() {
                     <a href="https://discord.com" target='_blank' rel='noreferrer'>
                         <DiscordIcon
                             alt="icono-discord"
-                            class="icon-size"
+                            className="icon-size"
                         />
                     </a>
                     <a href="https://www.instagram.com" target='_blank' rel='noreferrer'>
                         <InstagramIcon
                             alt=""
-                            class="icon-size"
+                            className="icon-size"
                         />
                     </a>
                 </div>

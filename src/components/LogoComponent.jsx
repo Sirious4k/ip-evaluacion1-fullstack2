@@ -1,5 +1,8 @@
 import '../index.css'
-import { ReactComponent as Logo } from '../assets/icons/logo.svg'
+import Logo from '../assets/icons/logo.svg?react';
+
+
+
 
 
 function LogoComponent() {

@@ -1,6 +1,6 @@
-@import "tailwindcss";
 @import '@fontsource/roboto';
 @import '@fontsource/montserrat';
+@import "tailwindcss";
 
 
 :root {
@@ -13,7 +13,6 @@
   --bg-button-hover: #c30148;
   --bg-cards: #1e1e2f4d;
 
-  --border-radius: 10px;
 }
 
 
