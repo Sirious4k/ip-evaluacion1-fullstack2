@@ -10,6 +10,7 @@ function Footer() {
 
         // centro
         derechosStyle: 'flex justify-center items-end text-center',
+
         //derecha
         redesContainer: 'w-full flex justify-end gap-[20px]'
     }
