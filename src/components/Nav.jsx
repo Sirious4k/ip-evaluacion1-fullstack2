@@ -25,7 +25,7 @@ function Nav() {
 
 
   const styles = {
-    mainNav: 'min-h-16 md:min-h-20 w-full fixed  top-0 bg-[var(--bg-primary-color)] p-8 ',
+    mainNav: 'min-h-16 md:min-h-20 w-full fixed  top-0 bg-[var(--bg-primary-color)] p-8 z-100',
 
     containerSectionsNav: 'h-full w-full max-width flex-col flex gap-[20px]',
 
@@ -43,43 +43,41 @@ function Nav() {
   }
 
   return (
-    <>
-      <nav className={styles.mainNav}>
-        <section className={styles.containerSectionsNav}>
-          <div className={styles.sectionTopNav}>
-            <LogoComponent />
-            <div className={styles.iconsTopNav}>
-              {/* // Falta definir enlace  */}
-              <a href='../pages/InicioSecion.js'>
-                <IconUser className='icon-size' />
-              </a>
-            </div>
+    <nav className={styles.mainNav}>
+      <section className={styles.containerSectionsNav}>
+        <div className={styles.sectionTopNav}>
+          <LogoComponent />
+          <div className={styles.iconsTopNav}>
+            {/* // Falta definir enlace  */}
+            <a href='../pages/InicioSecion.js'>
+              <IconUser className='icon-size' />
+            </a>
           </div>
-          <ul className={styles.containerItemsNav} >
-            <li className={styles.itemsHover}>
-              <a href='index.html'>Inicio</a>
-            </li>
+        </div>
+        <ul className={styles.containerItemsNav} >
+          <li className={styles.itemsHover}>
+            <a href='index.html'>Inicio</a>
+          </li>
 
-            <li className='relative' ref={dropdownRef}>
-              <p onClick={toggleDropdown} className={styles.itemsHover}>Categoria</p>
-              {dropdownOpen && (
-                <ul className={styles.dropdown}>
-                  <li className={styles.dropdownItem}><a href='../pages/Computadores.js'>Computadores</a></li>
-                  <li className={styles.dropdownItem}><a href='../pages/Consolas.js'>Consolas</a></li>
-                </ul>
-              )}
-            </li>
-            <li className={styles.itemsHover}>
-              <a href='../pages/Contacto.js'>Contacto</a>
-            </li>
-            <li className={styles.itemsHover}>
-              <a href='../pages/Nosotros.js'>Nosotros</a>
-            </li>
-          </ul >
+          <li className='relative' ref={dropdownRef}>
+            <p onClick={toggleDropdown} className={styles.itemsHover}>Categoria</p>
+            {dropdownOpen && (
+              <ul className={styles.dropdown}>
+                <li className={styles.dropdownItem}><a href='../pages/Computadores.js'>Computadores</a></li>
+                <li className={styles.dropdownItem}><a href='../pages/Consolas.js'>Consolas</a></li>
+              </ul>
+            )}
+          </li>
+          <li className={styles.itemsHover}>
+            <a href='../pages/Contacto.js'>Contacto</a>
+          </li>
+          <li className={styles.itemsHover}>
+            <a href='../pages/Nosotros.js'>Nosotros</a>
+          </li>
+        </ul >
 
-        </section >
-      </nav >
-    </>
+      </section >
+    </nav >
   );
 }
 
