@@ -4,6 +4,7 @@ import Logo from '../assets/icons/logo.svg?react';
 function LogoComponent() {
     const styles = {
         containerLogo: 'inline-flex items-center',
+
         logoSize: 'w-[8rem] h-auto'
     }
     return (
