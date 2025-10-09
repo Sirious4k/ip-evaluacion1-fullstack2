@@ -1,10 +1,6 @@
 import '../index.css'
 import Logo from '../assets/icons/logo.svg?react';
 
-
-
-
-
 function LogoComponent() {
     const styles = {
         containerLogo: 'inline-flex items-center',

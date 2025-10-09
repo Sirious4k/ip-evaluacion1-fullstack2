@@ -1,5 +1,7 @@
 @import '@fontsource/roboto';
 @import '@fontsource/montserrat';
+@import '@fontsource/oswald';
+
 @import "tailwindcss";
 
 
@@ -12,6 +14,7 @@
   --bg-button: #ff005c;
   --bg-button-hover: #c30148;
   --bg-cards: #1e1e2f4d;
+  --hover: #00ffea;
 
 }
 
@@ -45,7 +48,9 @@ li {
 h1,
 h2,
 h3 {
-  font-family: 'Montserrat';
+  font-family: 'Oswald';
+  font-weight: 900;
+  letter-spacing: 0.5rem;
 }
 
 p,
@@ -56,12 +61,19 @@ a {
 }
 
 .section-titles {
-  font-size: 3rem;
+  font-size: 3.5rem;
+  max-width: 400px;
+  text-wrap: balance;
+  margin-left: auto;
+  margin-right: auto;
+
 }
 
 @media (min-width: 640px) {
   .section-titles {
-    font-size: 5rem;
+    font-size: 7rem;
+    max-width: none;
+
   }
 
 }
