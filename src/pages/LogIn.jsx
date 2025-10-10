@@ -2,7 +2,7 @@
 import '../index.css'
 import ArrowIcon from '../assets/icons/icon-arrow.svg?react'
 import { useEffect } from 'react';
-import { initForm } from '../utils/form-validation';
+import { initFormLogin } from '../utils/form-validation-login';
 import { Link } from 'react-router-dom'
 import LogoComponent from '../components/LogoComponent';
 
@@ -10,7 +10,7 @@ import LogoComponent from '../components/LogoComponent';
 function LogIn() {
 
     useEffect(() => {
-        initForm();
+        initFormLogin();
     }, []);
     
     const styles = {
