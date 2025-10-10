@@ -1,9 +1,13 @@
 import './index.css'
-import Nav from './components/Nav.jsx'
-import Footer from './components/Footer.jsx'
 import Nosotros from './pages/Nosotros.jsx'
 import Contacto from './pages/Contacto.jsx'
 import Index from './pages/Index.jsx'
+import Computadoras from './pages/Computadores.jsx'
+import Consolas from './pages/Consolas.jsx'
+import SignUp from './pages/SignUp.jsx'
+import Login from './pages/LogIn.jsx'
+import MainLayout from './layouts/MainLayout.jsx'
+import LogLayout from './layouts/LogLayout.jsx';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
@@ -13,13 +17,21 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Nav />
       <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/nosotros" element={<Nosotros />} />
-        <Route path="/contacto" element={<Contacto />} />
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<Index />} />
+          <Route path="/nosotros" element={<Nosotros />} />
+          <Route path="/contacto" element={<Contacto />} />
+          <Route path="/computadoras" element={<Computadoras />} />
+          <Route path="/consolas" element={<Consolas />} />
+
+        </Route>
+
+        <Route element={<LogLayout />}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+        </Route>
       </Routes>
-      <Footer />
     </BrowserRouter >
   )
 }

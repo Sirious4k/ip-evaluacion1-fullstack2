@@ -4,6 +4,7 @@ import { initNavDropdown } from '../utils/dropdown'
 import LogoComponent from './LogoComponent'
 import IconUser from '../assets/icons/icon-nav-user.svg?react'
 import { Link } from 'react-router-dom'
+import Button from './ButtonLinkComponent'
 
 function Nav() {
   useEffect(() => {
@@ -19,7 +20,7 @@ function Nav() {
 
     // Top Nav
     sectionTopNav: 'flex justify-between items-center w-full',
-    iconsTopNav: 'flex flex-col gap-[20px]',
+    iconsTopNav: 'flex items-center gap-[20px]',
 
     // Items Nav
     containerItemsNav: 'flex gap-[20px] text-[1.5rem] lg:text-[2rem]',
@@ -39,9 +40,10 @@ function Nav() {
           <LogoComponent />
           <div className={styles.iconsTopNav}>
             {/* // Falta definir enlace  */}
-            <a href='../pages/InicioSecion.js'>
-              <IconUser className='icon-size' />
-            </a>
+            <Link to='/login'>
+              <IconUser className='icon-size hover:!text-[var(--hover)] transition-color ease-in-out duration-300' />
+            </Link>
+            <Button href='/signup'>Registro</Button >
           </div>
         </div>
         <ul className={styles.containerItemsNav}>
