@@ -3,6 +3,7 @@ import ArrowIcon from '../assets/icons/icon-arrow.svg?react'
 import { useEffect } from 'react';
 import { initForm } from '../utils/form-validation';
 import { Link } from 'react-router-dom'
+import LogoComponent from '../components/LogoComponent';
 
 function SignUp() {
 
@@ -33,12 +34,15 @@ function SignUp() {
         <div className='container-estatico'>
             <main className={styles.mainStyle}>
                 <div className={styles.boxSignUp}>
-                    <Link to='/' className='flex w-fit items-center gap-[10px] group cursor-pointer mb-12'>
-                        <ArrowIcon className='size-20 text-black group-hover:text-[var(--bg-button)] transition ease-in-out duration-300' />
-                        <h2 className='format-text-h2 !text-black group-hover:!text-[var(--bg-button)] !mb-0 !font-normal'>
-                            Volver
-                        </h2>
-                    </Link>
+                    <div className='flex justify-between '>
+                        <Link to='/' className='flex w-fit items-center gap-[10px] group cursor-pointer mb-12'>
+                            <ArrowIcon className='size-20 text-black group-hover:text-[var(--bg-button)] transition ease-in-out duration-300' />
+                            <h2 className='format-text-h2 !text-black group-hover:!text-[var(--bg-button)] !mb-0 !font-normal'>
+                                Volver
+                            </h2>
+                        </Link>
+                        <LogoComponent />
+                    </div>
                     <form action="" id='contactForm' className={formStyles.formBox}>
                         <div className={formStyles.leftSide}>
                             <label
