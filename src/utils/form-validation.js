@@ -7,6 +7,7 @@ export function initForm() {
     const form = document.getElementById('contactForm');
     const maxCaracteres = 50;
 
+    // const errores Registro
     const errores = {
         nombre: document.getElementById('error-nombre'),
         telefono: document.getElementById('error-telefono'),
@@ -15,6 +16,7 @@ export function initForm() {
         repiteContrasena: document.getElementById('error-repite-contrasena')
     };
 
+    //EventListeners Registro
     if (nombre) {
         nombre.addEventListener('input', () => {
             if (nombre.value.length > maxCaracteres) nombre.value = nombre.value.slice(0, maxCaracteres);
@@ -48,6 +50,7 @@ export function initForm() {
         });
     }
 
+    //form Registro
     if (form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
