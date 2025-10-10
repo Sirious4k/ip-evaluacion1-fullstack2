@@ -15,13 +15,15 @@ function Contacto() {
 
     const formStyles = {
         formBox: 'flex flex-col lg:grid lg:grid-cols-2 w-full h-full gap-[20px]',
+
         leftSide: 'flex flex-col w-full h-full gap-[20px]',
         rightSide: 'flex flex-col w-full',
+
         inputPhone: 'flex items-center gap-[20px]',
         textArea: 'h-full bg-inherit border border-[var(--hover)]/30 transition-border duration-300 ease-in-out outline-hidden resize-none p-[20px] format-text-p !not-italic !text-left focus:border-[var(--hover)]/90 scrollbar-thin',
         formatTextH2: 'format-text-h2 !mb-0',
         boxButton: 'flex w-full col-2 justify-end',
-        submitButton: 'w-full md:w-[200px] py-[1rem] px-[0.5rem] text-center font-black text-[1.8rem] bg-[var(--bg-button)] text-[var(--white-variant-hover)] cursor-pointer transition ease-in-out duration-300 hover:bg-[var(--bg-button-hover)]'
+        submitButton: 'w-full md:w-[200px] py-[1rem] px-[0.5rem] text-center text-[1.8rem] bg-[var(--bg-button)] text-[var(--white-variant)] cursor-pointer transition ease-in-out duration-300 hover:bg-[var(--bg-button-hover)] hover:text-[var(--white-variant-hover)]'
     }
 
     return (
