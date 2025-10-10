@@ -14,30 +14,7 @@ function LogIn() {
     return (
         <div className='container-estatico'>
             <main className={styles.mainStyle}>
-                <div>
-                    <Link>
-                        <ArrowIcon />
-                        <h2></h2>
-                    </Link>
-                </div>
-                <form action="">
-                    <div>
-                        <label htmlFor="">
-                            <span></span>
-                        </label>
-                        <input type="text" />
 
-                        <label htmlFor="">
-                            <span></span>
-                        </label>
-                        <input type="text" />
-                    </div>
-                    <div>
-                        <button
-                            type='submit'
-                        ></button>
-                    </div>
-                </form>
             </main>
         </div>
     );
