@@ -1,6 +1,6 @@
 import '../index.css'
 import { useEffect } from 'react';
-import { initForm } from '../utils/form-validation';
+import { initForm } from '../utils/contacto-validation';
 
 function Contacto() {
     useEffect(() => {
@@ -39,7 +39,7 @@ function Contacto() {
                         <form action="" id='contactForm' className={formStyles.formBox}>
                             <div className={formStyles.leftSide}>
                                 <label
-                                    htmlFor="nombre"
+                                    htmlFor="nombre-contacto"
                                     className={formStyles.formatTextH2}>Nombre:
                                     <span
                                         className='error'
@@ -48,11 +48,11 @@ function Contacto() {
                                 </label>
                                 <input
                                     type="text"
-                                    id='nombre'
+                                    id='nombre-contacto'
                                     className={formStyles.input} />
 
                                 <label
-                                    htmlFor="telefono"
+                                    htmlFor="telefono-contacto"
                                     className={formStyles.formatTextH2}>Telefono:
                                     <span
                                         className='error'
@@ -63,12 +63,12 @@ function Contacto() {
                                     <span className='format-text-p'>+56</span>
                                     <input
                                         type="tel"
-                                        id='telefono'
+                                        id='telefono-contacto'
                                         className={formStyles.input} />
                                 </div>
 
                                 <label
-                                    htmlFor="correo"
+                                    htmlFor="correo-contacto"
                                     className={formStyles.formatTextH2}>Correo:
                                     <span
                                         className='error'
@@ -77,13 +77,13 @@ function Contacto() {
                                 </label>
                                 <input
                                     type="email"
-                                    id='correo'
+                                    id='correo-contacto'
                                     className={formStyles.input} />
                             </div>
 
                             <div className={formStyles.rightSide}>
                                 <label
-                                    htmlFor="mensaje"
+                                    htmlFor="mensaje-contacto"
                                     className='format-text-h2'>Detalla tu problema:
                                     <span
                                         className='error'
@@ -91,7 +91,7 @@ function Contacto() {
                                     <span />
                                 </label>
                                 <textarea
-                                    id="mensaje"
+                                    id="mensaje-contacto"
                                     rows={5}
                                     maxLength={500}
                                     className={formStyles.textArea} >

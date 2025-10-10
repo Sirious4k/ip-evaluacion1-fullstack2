@@ -1,22 +1,16 @@
 export function initForm() {
-    const nombre = document.getElementById('nombre');
-    const telefono = document.getElementById('telefono');
-    const correo = document.getElementById('correo');
-    const contrasena = document.getElementById('contrasena-principal');
-    const repiteContrasena = document.getElementById('repite-contrasena');
+    const nombre = document.getElementById('nombre-contacto');
+    const telefono = document.getElementById('telefono-contacto');
+    const correo = document.getElementById('correo-contacto');
     const form = document.getElementById('contactForm');
     const maxCaracteres = 50;
 
-    // const errores Registro
     const errores = {
         nombre: document.getElementById('error-nombre'),
         telefono: document.getElementById('error-telefono'),
         correo: document.getElementById('error-correo'),
-        contrasena: document.getElementById('error-contrasena-principal'),
-        repiteContrasena: document.getElementById('error-repite-contrasena')
     };
 
-    //EventListeners Registro
     if (nombre) {
         nombre.addEventListener('input', () => {
             if (nombre.value.length > maxCaracteres) nombre.value = nombre.value.slice(0, maxCaracteres);
@@ -38,19 +32,6 @@ export function initForm() {
         });
     }
 
-    if (contrasena && repiteContrasena) {
-        contrasena.addEventListener('input', () => {
-            if (contrasena.value.trim().length >= 8) errores.contrasena.textContent = '';
-            if (repiteContrasena.value.trim() && contrasena.value === repiteContrasena.value) errores.repiteContrasena.textContent = '';
-        });
-
-        repiteContrasena.addEventListener('input', () => {
-            if (repiteContrasena.value.trim() !== '') errores.repiteContrasena.textContent = '';
-            if (contrasena.value === repiteContrasena.value) errores.repiteContrasena.textContent = '';
-        });
-    }
-
-    //form Registro
     if (form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -75,22 +56,6 @@ export function initForm() {
                 isValid = false;
             } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo.value.trim())) {
                 errores.correo.textContent = 'Correo inválido';
-                isValid = false;
-            }
-
-            if (!contrasena.value.trim()) {
-                errores.contrasena.textContent = 'Debe ingresar su contraseña';
-                isValid = false;
-            } else if (contrasena.value.trim().length < 8) {
-                errores.contrasena.textContent = 'La contraseña debe tener al menos 8 caracteres';
-                isValid = false;
-            }
-
-            if (!repiteContrasena.value.trim()) {
-                errores.repiteContrasena.textContent = 'Debe repetir su contraseña';
-                isValid = false;
-            } else if (contrasena.value !== repiteContrasena.value) {
-                errores.repiteContrasena.textContent = 'Las contraseñas no coinciden';
                 isValid = false;
             }
 
