@@ -32,7 +32,7 @@ function Contacto() {
         <div className='container-estatico'>
             <main className={containerStyles.main}>
                 <section className={containerStyles.section}>
-                    <header className={containerStyles.header}>
+                    <header >
                         <h1 className='section-titles'>¿Problemas?</h1>
                     </header>
                     <div className={containerStyles.boxContent}>

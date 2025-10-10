@@ -15,7 +15,7 @@ function Nosotros() {
             <main
                 className='main-style !py-20 items-center flex '>
                 <section className={styles.containerNosotros}>
-                    <header className={styles.header}>
+                    <header >
                         <h1 className='section-titles'>Nosotros</h1>
                     </header>
                     <div className={styles.boxContentNosotros}>
