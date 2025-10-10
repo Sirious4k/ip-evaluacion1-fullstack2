@@ -40,7 +40,7 @@ function Nav() {
           <LogoComponent />
           <div className={styles.iconsTopNav}>
             {/* // Falta definir enlace  */}
-            <Link to=''>
+            <Link to='/login'>
               <IconUser className='icon-size hover:!text-[var(--hover)] transition-color ease-in-out duration-300' />
             </Link>
             <Button href='/signup'>Registro</Button >

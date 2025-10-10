@@ -1,12 +1,16 @@
 export function initForm() {
     const nombre = document.getElementById('nombre');
     const telefono = document.getElementById('telefono');
+    const logCorreo = document.getElementById('correo-log');
     const correo = document.getElementById('correo');
+    const logContrasena = document.getElementById('contrasena-log');
     const contrasena = document.getElementById('contrasena-principal');
     const repiteContrasena = document.getElementById('repite-contrasena');
     const form = document.getElementById('contactForm');
+    const logForm = document.getElementById('loginForm')
     const maxCaracteres = 50;
 
+    // const errores Registro
     const errores = {
         nombre: document.getElementById('error-nombre'),
         telefono: document.getElementById('error-telefono'),
@@ -15,6 +19,13 @@ export function initForm() {
         repiteContrasena: document.getElementById('error-repite-contrasena')
     };
 
+    //const errores LogIn
+    const logErrores = {
+    logCorreo: document.getElementById('error-correo-login'),
+    logContrasena: document.getElementById('error-contrasena-login'),
+};
+
+    //EventListeners Registro
     if (nombre) {
         nombre.addEventListener('input', () => {
             if (nombre.value.length > maxCaracteres) nombre.value = nombre.value.slice(0, maxCaracteres);
@@ -48,6 +59,20 @@ export function initForm() {
         });
     }
 
+    //EventListeners LogIn
+    if (logCorreo) {
+    logCorreo.addEventListener('input', () => {
+        if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(logCorreo.value.trim())) logErrores.logCorreo.textContent = '';
+    });
+}
+
+    if (logContrasena) {
+    logContrasena.addEventListener('input', () => {
+        if (logContrasena.value.trim().length >= 8) logErrores.logContrasena.textContent = '';
+    });
+}
+
+    //form Registro
     if (form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -94,6 +119,36 @@ export function initForm() {
             if (isValid) {
                 alert('Formulario enviado correctamente');
                 form.reset();
+            }
+        });
+    }
+
+    //form LogIn
+        if (logForm) {
+        logForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            Object.values(logErrores).forEach(span => span.textContent = '');
+            let isValid = true;
+
+            if (correo.value.trim() === '') {
+                logErrores.correo.textContent = 'Debe ingresar su correo';
+                isValid = false;
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo.value.trim())) {
+                logErrores.correo.textContent = 'Correo inválido';
+                isValid = false;
+            }
+
+            if (!logContrasena.value.trim()) {
+                logErrores.logContrasena.textContent = 'Debe ingresar su contraseña';
+                isValid = false;
+            } else if (logContrasena.value.trim().length < 8) {
+                logErrores.logContrasena.textContent = 'La contraseña debe tener al menos 8 caracteres';
+                isValid = false;
+            }
+
+            if (isValid) {
+                alert('Formulario enviado correctamente');
+                logForm.reset();
             }
         });
     }
