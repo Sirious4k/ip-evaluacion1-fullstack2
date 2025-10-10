@@ -19,6 +19,8 @@ function Contacto() {
         leftSide: 'flex flex-col w-full h-full gap-[20px]',
         rightSide: 'flex flex-col w-full',
 
+        input: 'text-white',
+
         inputPhone: 'flex items-center gap-[20px]',
         textArea: 'h-full bg-inherit border border-[var(--hover)]/30 transition-border duration-300 ease-in-out outline-hidden resize-none p-[20px] format-text-p !not-italic !text-left focus:border-[var(--hover)]/90 scrollbar-thin',
         formatTextH2: 'format-text-h2 !mb-0',
@@ -46,7 +48,8 @@ function Contacto() {
                                 </label>
                                 <input
                                     type="text"
-                                    id='nombre' />
+                                    id='nombre'
+                                    className={formStyles.input} />
 
                                 <label
                                     htmlFor="telefono"
@@ -58,7 +61,10 @@ function Contacto() {
                                 </label>
                                 <div className={formStyles.inputPhone}>
                                     <span className='format-text-p'>+56</span>
-                                    <input type="tel" id='telefono' />
+                                    <input
+                                        type="tel"
+                                        id='telefono'
+                                        className={formStyles.input} />
                                 </div>
 
                                 <label
@@ -71,7 +77,8 @@ function Contacto() {
                                 </label>
                                 <input
                                     type="email"
-                                    id='correo' />
+                                    id='correo'
+                                    className={formStyles.input} />
                             </div>
 
                             <div className={formStyles.rightSide}>
