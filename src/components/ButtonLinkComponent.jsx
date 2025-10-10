@@ -7,10 +7,10 @@ function ButtonLinkComponent({ href, children }) {
     }
 
     return (
-        <Link to={href} className={styles.buttonStyle}>
-
+        <Link
+            to={href}
+            className={styles.buttonStyle}>
             {children}
-
         </Link>
     )
 }

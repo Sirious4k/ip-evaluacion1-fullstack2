@@ -22,13 +22,19 @@ function Footer() {
                     <p className='text-md lg:text-2xl'>2025 Ningun derecho reservado</p>
                 </div>
                 <div className={styles.redesContainer}>
-                    <a href="https://discord.com" target='_blank' rel='noreferrer'>
+                    <a
+                        href="https://discord.com"
+                        target='_blank'
+                        rel='noreferrer'>
                         <DiscordIcon
                             alt="icono-discord"
                             className="icon-size"
                         />
                     </a>
-                    <a href="https://www.instagram.com" target='_blank' rel='noreferrer'>
+                    <a
+                        href="https://www.instagram.com"
+                        target='_blank'
+                        rel='noreferrer'>
                         <InstagramIcon
                             alt=""
                             className="icon-size"

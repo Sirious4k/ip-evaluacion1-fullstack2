@@ -12,7 +12,8 @@ function Nosotros() {
 
     return (
         <div className='container-estatico '>
-            <main className='main-style !py-20 items-center flex '>
+            <main
+                className='main-style !py-20 items-center flex '>
                 <section className={styles.containerNosotros}>
                     <header className={styles.header}>
                         <h1 className='section-titles'>Nosotros</h1>
