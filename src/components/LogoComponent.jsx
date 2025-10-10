@@ -1,5 +1,6 @@
 import '../index.css'
 import Logo from '../assets/icons/logo.svg?react';
+import { Link } from 'react-router';
 
 function LogoComponent() {
     const styles = {
@@ -10,9 +11,9 @@ function LogoComponent() {
 
     return (
         <div className={styles.containerLogo}>
-            <a href='index.html'>
+            <Link to='/'>
                 <Logo className={styles.logoSize} />
-            </a>
+            </Link>
         </div>
     );
 }

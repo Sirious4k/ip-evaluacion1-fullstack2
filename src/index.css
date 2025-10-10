@@ -23,6 +23,11 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent;
+}
 html {
   font-size: 62.5%;
 }
@@ -105,7 +110,8 @@ li {
 
 h1,
 h2,
-h3 {
+h3,
+label {
   font-family: 'Oswald';
   font-weight: 900;
   letter-spacing: 0.5rem;
@@ -137,6 +143,8 @@ a {
 }
 
 .max-width {
+  width: 100%;
+
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -162,4 +170,37 @@ a {
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+/* Form */
+
+input {
+  max-width: 100%;
+  width: 100%;
+  padding: 6px 5px;
+  background-color: inherit;
+  outline: none;
+  border: 1px solid rgba(0, 255, 234, 0.3);
+  transition: border 0.3s ease-in-out;
+  font-size: 14px;
+}
+
+input:focus {
+  border: 1px solid rgba(0, 255, 234, 0.6);
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-left: 5px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* drop */
+
+.show {
+  display: block;
 }
