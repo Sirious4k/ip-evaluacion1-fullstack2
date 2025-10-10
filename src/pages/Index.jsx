@@ -23,7 +23,7 @@ function Index() {
         rightBoxes: 'flex flex-col lg:grid lg:grid-rows-2 gap-[20px]',
 
         // section two
-        containerBoxItems: 'flex w-full gap-10 overflow-x-auto overflow-y-hidden min-h-[200px] md:min-h-[150px] max-h-[300px] justify-between scrollbar-thin',
+        containerBoxItems: 'flex w-full gap-10 overflow-x-auto min-h-[200px] md:min-h-[150px] max-h-[300px] justify-between scrollbar-thin',
         boxItemSectionTwo: 'flex flex-col max-w-[250px] flex-shrink-0 pb-5 gap-5',
         containerImage: 'max-w-[250px] max-h-[200px] rounded-lg overflow-hidden',
         h1Items: 'text-5xl text-white truncate tracking-wider',
