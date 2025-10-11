@@ -5,6 +5,7 @@
 
 :root {
   --bg-primary-color: #0a0a0f;
+  --bg-primary-color-dark: #ff005c;
   --bg-cards-color: #fefefe;
   --white-variant: #fefefe;
   --white-variant-hover: #ffffffb9;
@@ -51,7 +52,7 @@ li {
 .container-body-normal {
   display: flex;
   flex-direction: column;
-  min-height: auto;
+  min-height: 100vh;
   background: linear-gradient(to bottom right, #00001f, #00001f, #080844);
 }
 
@@ -181,7 +182,7 @@ input {
   padding: 6px 5px;
   background-color: inherit;
   outline: none;
-  border: 1px solid rgba(0, 255, 234, 0.3);
+  border: 1px solid rgba(0, 255, 234, 0.2);
   transition: border 0.3s ease-in-out;
   font-size: 14px;
 }

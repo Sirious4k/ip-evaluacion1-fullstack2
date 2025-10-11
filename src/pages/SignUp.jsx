@@ -1,4 +1,3 @@
-import '../index.css'
 import ArrowIcon from '../assets/icons/icon-arrow.svg?react'
 import { useEffect } from 'react';
 import { initForm } from '../utils/signup-validation';
@@ -12,9 +11,9 @@ function SignUp() {
     }, []);
 
     const styles = {
-        mainStyle: 'flex items-center justify-center min-h-[100vh] !mt-0 main-style  bg-linear-to-b  bg-[linear-gradient(to_bottom,_#00001f_50%,_#fefefe_50%)]  ',
+        mainStyle: 'flex items-center justify-center min-h-[100vh] !mt-0 main-style  bg-linear-to-b  bg-linear-to-br from-[var(--bg-primary-color)] via-[var(--bg-primary-color)] to-[#080844] ',
 
-        boxSignUp: 'flex flex-col max-h-[600px] lg:max-w-[500px] w-full p-8 bg-[var(--white-variant)] shadow-2xl'
+        boxSignUp: 'flex flex-col max-h-auto lg:max-w-[500px] w-full p-8 bg-[var(--white-variant)] shadow-2xl'
     }
 
     const formStyles = {
@@ -28,7 +27,11 @@ function SignUp() {
 
         formatTextH2: 'format-text-h2 !mb-0 !text-black',
         boxButton: 'flex w-full col-2 justify-end',
-        submitButton: 'w-full md:w-[200px] py-[1rem] px-[0.5rem] mt-12 text-center text-[1.8rem] bg-[var(--bg-button)] text-[var(--white-variant)] cursor-pointer transition ease-in-out duration-300 hover:bg-[var(--bg-button-hover)] hover:text-[var(--white-variant-hover)]'
+        submitButton: 'w-full md:w-[200px] py-[1rem] px-[0.5rem] mt-12 text-center text-[1.8rem] bg-[var(--bg-button)] text-[var(--white-variant)] cursor-pointer transition ease-in-out duration-300 hover:bg-[var(--bg-button-hover)] hover:text-[var(--white-variant-hover)]',
+
+        //
+        linkLoginButton: 'format-text-p cursor-auto !text-black/100 !not-italic !text-[1.6rem]',
+        loginButton: '!inline-block cursor-pointer !text-[var(--bg-button)] hover:!text-[var(--bg-button-hover)] !font-black transition-color duration-300 ease-in-out'
     }
     return (
         <div className='container-estatico'>
@@ -87,6 +90,21 @@ function SignUp() {
                                 id='correo'
                                 className={formStyles.input} />
 
+                            <label
+                                htmlFor="address"
+                                className={formStyles.formatTextH2}>
+                                Dirección:
+                                <span
+                                    className='error'
+                                    id='error-direccion'>
+                                </span>
+                            </label>
+                            <input
+                                id="address"
+                                name="address"
+                                rows="1"
+                                className={formStyles.input} ></input>
+
                             <label htmlFor="contrasena-principal"
                                 className={formStyles.formatTextH2}>
                                 Contrseña:
@@ -115,7 +133,11 @@ function SignUp() {
                                 className={formStyles.input} />
                         </div>
 
-
+                        <div className=' w-full !text-left '>
+                            <Link to='/login' className={formStyles.linkLoginButton}>
+                                ¿Ya tienes cuenta? <span className={formStyles.loginButton}> Inicia Sesión Aquí </span>
+                            </Link>
+                        </div>
 
                         <div className={formStyles.boxButton}>
                             <button
@@ -126,8 +148,8 @@ function SignUp() {
                         </div>
                     </form>
                 </div>
-            </main>
-        </div>
+            </main >
+        </div >
     );
 }
 

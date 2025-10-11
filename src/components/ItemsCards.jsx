@@ -1,8 +1,3 @@
-
-import '../index.css'
-
-
-
 function ItemCard({ image, title, price }) {
 
     const styles = {

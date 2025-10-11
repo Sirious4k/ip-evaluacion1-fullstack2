@@ -1,4 +1,3 @@
-import '../index.css'
 import { useEffect } from 'react';
 import { initForm } from '../utils/contacto-validation';
 
@@ -10,7 +9,7 @@ function Contacto() {
     const containerStyles = {
         main: 'main-style !py-20 items-center flex',
         section: 'flex flex-col max-width',
-        boxContent: 'flex flex-col w-full h-auto p-[50px] gap-[20px] bg-[var(--bg-cards)]'
+        boxContent: 'flex flex-col w-full h-auto p-[50px] gap-[20px] bg-[var(--bg-cards)]/30'
     }
 
     const formStyles = {
@@ -22,7 +21,7 @@ function Contacto() {
         input: 'text-white',
 
         inputPhone: 'flex items-center gap-[20px]',
-        textArea: 'h-full bg-inherit border border-[var(--hover)]/30 transition-border duration-300 ease-in-out outline-hidden resize-none p-[20px] format-text-p !not-italic !text-left focus:border-[var(--hover)]/90 scrollbar-thin',
+        textArea: 'h-full bg-inherit border border-[var(--hover)]/20 transition-border duration-300 ease-in-out outline-hidden resize-none p-[20px] format-text-p !not-italic !text-left focus:border-[var(--hover)]/90 scrollbar-thin',
         formatTextH2: 'format-text-h2 !mb-0',
         boxButton: 'flex w-full col-2 justify-end',
         submitButton: 'w-full md:w-[200px] py-[1rem] px-[0.5rem] text-center text-[1.8rem] bg-[var(--bg-button)] text-[var(--white-variant)] cursor-pointer transition ease-in-out duration-300 hover:bg-[var(--bg-button-hover)] hover:text-[var(--white-variant-hover)]'

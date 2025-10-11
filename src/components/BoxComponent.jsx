@@ -1,5 +1,3 @@
-import '../index.css'
-
 function BoxComponent({ title, content }) {
     const styles = {
         Box: 'flex flex-col min-h-[200px] md:min-h-[150px] p-8 bg-[var(--bg-primary-color)] border-[0.2px] border-[var(--hover)]/60 transform transition cursor-pointer scale-100 hover:scale-102 hover:bg-[var(--hover)]/80 duration-300 group',

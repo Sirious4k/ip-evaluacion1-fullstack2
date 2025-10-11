@@ -1,4 +1,3 @@
-import '../index.css'
 import { useEffect } from 'react'
 import { initNavDropdown } from '../utils/dropdown'
 import LogoComponent from './LogoComponent'
@@ -52,7 +51,7 @@ function Nav() {
           </li>
 
           <li className='relative categoria-item'>
-            <p className={styles.itemsHover}>Categoría</p>
+            <Link to='/categoria' className={styles.itemsHover}>Categoría</Link>
             <ul className={styles.dropdown}>
               <li className={styles.dropdownItem}>
                 <a href='../pages/Computadores.js'>Computadores</a>
