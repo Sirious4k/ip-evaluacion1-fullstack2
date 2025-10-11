@@ -1,4 +1,3 @@
-import '../index.css'
 import Logo from '../assets/icons/logo.svg?react';
 import { Link } from 'react-router';
 

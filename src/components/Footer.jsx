@@ -1,4 +1,3 @@
-import '../index.css'
 import LogoComponent from './LogoComponent.jsx'
 import DiscordIcon from '../assets/icons/logo-discord.svg?react'
 import InstagramIcon from '../assets/icons/logo-insta.svg?react'

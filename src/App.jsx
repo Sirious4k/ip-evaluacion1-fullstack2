@@ -2,6 +2,7 @@ import './index.css'
 import Nosotros from './pages/Nosotros.jsx'
 import Contacto from './pages/Contacto.jsx'
 import Index from './pages/Index.jsx'
+import Categoria from './pages/Categoria.jsx'
 import Computadoras from './pages/Computadores.jsx'
 import Consolas from './pages/Consolas.jsx'
 import SignUp from './pages/SignUp.jsx'
@@ -22,8 +23,10 @@ function App() {
           <Route path="/" element={<Index />} />
           <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/contacto" element={<Contacto />} />
+          <Route path="/categoria" element={<Categoria />} />
           <Route path="/computadoras" element={<Computadoras />} />
           <Route path="/consolas" element={<Consolas />} />
+
 
         </Route>
 

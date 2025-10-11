@@ -2,6 +2,7 @@ export function initForm() {
     const nombre = document.getElementById('nombre');
     const telefono = document.getElementById('telefono');
     const correo = document.getElementById('correo');
+    const direccion = document.getElementById('address');
     const contrasena = document.getElementById('contrasena-principal');
     const repiteContrasena = document.getElementById('repite-contrasena');
     const form = document.getElementById('signUpForm');
@@ -11,6 +12,7 @@ export function initForm() {
         nombre: document.getElementById('error-nombre'),
         telefono: document.getElementById('error-telefono'),
         correo: document.getElementById('error-correo'),
+        direccion: document.getElementById('error-direccion'),
         contrasena: document.getElementById('error-contrasena-principal'),
         repiteContrasena: document.getElementById('error-repite-contrasena')
     };
@@ -33,6 +35,13 @@ export function initForm() {
     if (correo) {
         correo.addEventListener('input', () => {
             if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo.value.trim())) errores.correo.textContent = '';
+        });
+    }
+
+    if (direccion) {
+        direccion.addEventListener('input', () => {
+            if (direccion.value.length > maxCaracteres) direccion.value = direccion.value.slice(0, maxCaracteres);
+            if (direccion.value.trim() !== '') errores.direccion.textContent = '';
         });
     }
 
@@ -59,6 +68,12 @@ export function initForm() {
                 isValid = false;
             }
 
+            if (direccion.value.trim() === '') {
+                errores.direccion.textContent = 'Indique su dirección completa';
+                isValid = false;
+            }
+
+
             if (telefono.value.trim() === '') {
                 errores.telefono.textContent = 'Debe ingresar su teléfono';
                 isValid = false;
@@ -74,6 +89,8 @@ export function initForm() {
                 errores.correo.textContent = 'Correo inválido';
                 isValid = false;
             }
+
+
 
             if (!contrasena.value.trim()) {
                 errores.contrasena.textContent = 'Debe ingresar su contraseña';

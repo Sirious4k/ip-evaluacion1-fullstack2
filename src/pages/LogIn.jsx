@@ -1,5 +1,3 @@
-
-import '../index.css'
 import ArrowIcon from '../assets/icons/icon-arrow.svg?react'
 import { useEffect } from 'react';
 import { initFormLogin } from '../utils/form-validation-login';
@@ -12,13 +10,13 @@ function LogIn() {
     useEffect(() => {
         initFormLogin();
     }, []);
-    
+
     const styles = {
-        mainStyle: 'flex items-center justify-center min-h-[100vh] !mt-0 main-style  bg-linear-to-b  bg-[linear-gradient(to_bottom,_#00001f_50%,_#fefefe_50%)]  ',
+        mainStyle: 'flex items-center justify-center min-h-[100vh] !mt-0 main-style bg-linear-to-br from-[var(--bg-primary-color)] via-[var(--bg-primary-color)] to-[#080844]  ',
         boxLogIn: 'flex flex-col max-h-[600px] lg:max-w-[500px] w-full p-8 bg-[var(--white-variant)] shadow-2xl'
     }
 
-        const formStyles = {
+    const formStyles = {
         formBox: 'flex flex-col w-full h-full  gap-[10px]',
 
         leftSide: 'flex flex-col w-full h-full gap-[10px] ',
@@ -27,7 +25,11 @@ function LogIn() {
 
         formatTextH2: 'format-text-h2 !mb-0 !text-black',
         boxButton: 'flex w-full col-2 justify-end',
-        submitButton: 'w-full md:w-[200px] py-[1rem] px-[0.5rem] mt-12 text-center text-[1.8rem] bg-[var(--bg-button)] text-[var(--white-variant)] cursor-pointer transition ease-in-out duration-300 hover:bg-[var(--bg-button-hover)] hover:text-[var(--white-variant-hover)]'
+        submitButton: 'w-full md:w-[200px] py-[1rem] px-[0.5rem] mt-12 text-center text-[1.8rem] bg-[var(--bg-button)] text-[var(--white-variant)] cursor-pointer transition ease-in-out duration-300 hover:bg-[var(--bg-button-hover)] hover:text-[var(--white-variant-hover)]',
+
+        //
+        linkLoginButton: 'format-text-p cursor-auto !text-black/100 !not-italic !text-[1.6rem]',
+        loginButton: '!inline-block cursor-pointer !text-[var(--bg-button)] hover:!text-[var(--bg-button-hover)] !font-black transition-color duration-300 ease-in-out'
     }
 
     return (
@@ -51,7 +53,7 @@ function LogIn() {
                                 Correo:
                                 <span
                                     className='error'
-                                    id='error-correo-login'/>
+                                    id='error-correo-login' />
                                 <span />
                             </label>
                             <input
@@ -66,13 +68,17 @@ function LogIn() {
                                 <span
                                     className='error'
                                     id='error-contrasena-login'>
-                                </span>    
+                                </span>
                             </label>
                             <input
                                 type="password"
                                 id="contrasena-log"
                                 className={formStyles.input} />
-
+                            <div className=' w-full !text-left '>
+                                <Link to='/signup' className={formStyles.linkLoginButton}>
+                                    ¿Aún no tienes cuenta? <span className={formStyles.loginButton}> Regístrate aquí. </span>
+                                </Link>
+                            </div>
                             <div className={formStyles.boxButton}>
                                 <button
                                     type='submit'
@@ -81,10 +87,11 @@ function LogIn() {
                                 </button>
                             </div>
                         </div>
+
                     </form>
                 </div>
-            </main>
-        </div>
+            </main >
+        </div >
     );
 }
 

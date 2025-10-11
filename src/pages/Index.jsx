@@ -1,4 +1,3 @@
-import '../index.css'
 import Button from '../components/ButtonLinkComponent.jsx'
 import BoxComponent from '../components/BoxComponent.jsx'
 import ItemCard from '../components/ItemsCards.jsx';

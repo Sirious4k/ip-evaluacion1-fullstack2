@@ -1,5 +1,3 @@
-import '../index.css'
-
 function Nosotros() {
 
     const styles = {
