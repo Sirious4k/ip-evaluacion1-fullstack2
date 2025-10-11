@@ -1,7 +1,7 @@
 import '../index.css'
 import ArrowIcon from '../assets/icons/icon-arrow.svg?react'
 import { useEffect } from 'react';
-import { initForm } from '../utils/form-validation';
+import { initForm } from '../utils/signup-validation';
 import { Link } from 'react-router-dom'
 import LogoComponent from '../components/LogoComponent';
 
@@ -43,7 +43,7 @@ function SignUp() {
                         </Link>
                         <LogoComponent />
                     </div>
-                    <form action="" id='contactForm' className={formStyles.formBox}>
+                    <form action="" id='signUpForm' className={formStyles.formBox}>
                         <div className={formStyles.leftSide}>
                             <label
                                 htmlFor="nombre"
@@ -60,7 +60,7 @@ function SignUp() {
 
                             <label
                                 htmlFor="telefono"
-                                className={formStyles.formatTextH2}>Telefono:
+                                className={formStyles.formatTextH2}>Teléfono:
                                 <span
                                     className='error'
                                     id='error-telefono' />

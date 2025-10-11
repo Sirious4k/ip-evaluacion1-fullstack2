@@ -5,27 +5,27 @@ export function initFormLogin() {
 
     //const errores LogIn
     const logErrores = {
-    logCorreo: document.getElementById('error-correo-login'),
-    logContrasena: document.getElementById('error-contrasena-login'),
-};
+        logCorreo: document.getElementById('error-correo-login'),
+        logContrasena: document.getElementById('error-contrasena-login'),
+    };
 
     //EventListeners LogIn
     if (logCorreo) {
-    logCorreo.addEventListener('input', () => {
-        if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(logCorreo.value.trim())) logErrores.logCorreo.textContent = '';
-    });
-}
+        logCorreo.addEventListener('input', () => {
+            if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(logCorreo.value.trim())) logErrores.logCorreo.textContent = '';
+        });
+    }
 
     if (logContrasena) {
-    logContrasena.addEventListener('input', () => {
-        if (logContrasena.value.trim().length >= 8) logErrores.logContrasena.textContent = '';
-    });
-}
+        logContrasena.addEventListener('input', () => {
+            if (logContrasena.value.trim().length >= 8) logErrores.logContrasena.textContent = '';
+        });
+    }
 
     //form LogIn
-        if (logForm) {
-        logForm.addEventListener('submit', (e) => {
-            e.preventDefault();
+    if (logForm) {
+        logForm.addEventListener('submit', (n) => {
+            n.preventDefault();
             Object.values(logErrores).forEach(span => span.textContent = '');
             let isValid = true;
 
@@ -46,7 +46,7 @@ export function initFormLogin() {
             }
 
             if (isValid) {
-                alert('Formulario enviado correctamente');
+                alert('Haz Iniciado Sesion');
                 logForm.reset();
                 window.location.href = '/';
             }
