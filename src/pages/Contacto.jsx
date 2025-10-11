@@ -53,7 +53,7 @@ function Contacto() {
 
                                 <label
                                     htmlFor="telefono-contacto"
-                                    className={formStyles.formatTextH2}>Telefono:
+                                    className={formStyles.formatTextH2}>Teléfono:
                                     <span
                                         className='error'
                                         id='error-telefono' />

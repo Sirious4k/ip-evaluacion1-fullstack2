@@ -60,7 +60,7 @@ function SignUp() {
 
                             <label
                                 htmlFor="telefono"
-                                className={formStyles.formatTextH2}>Telefono:
+                                className={formStyles.formatTextH2}>Teléfono:
                                 <span
                                     className='error'
                                     id='error-telefono' />

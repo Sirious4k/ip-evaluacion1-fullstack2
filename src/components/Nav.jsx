@@ -52,7 +52,7 @@ function Nav() {
           </li>
 
           <li className='relative categoria-item'>
-            <p className={styles.itemsHover}>Categoria</p>
+            <p className={styles.itemsHover}>Categoría</p>
             <ul className={styles.dropdown}>
               <li className={styles.dropdownItem}>
                 <a href='../pages/Computadores.js'>Computadores</a>

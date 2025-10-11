@@ -33,8 +33,8 @@ export function initForm() {
     }
 
     if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
+        form.addEventListener('submit', (n) => {
+            n.preventDefault();
             Object.values(errores).forEach(span => span.textContent = '');
             let isValid = true;
 
@@ -60,7 +60,7 @@ export function initForm() {
             }
 
             if (isValid) {
-                alert('Formulario enviado correctamente');
+                alert('Formulario Contacto enviado correctamente');
                 form.reset();
             }
         });
