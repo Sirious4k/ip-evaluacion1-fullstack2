@@ -1,7 +1,9 @@
 import Button from '../components/ButtonLinkComponent.jsx'
 import BoxComponent from '../components/BoxComponent.jsx'
 import ItemCard from '../components/ItemsCards.jsx';
-import { computador1, computador2, computador3 } from '../assets/images';
+import { products as allProducts } from '../utils/products';
+import { Link } from 'react-router';
+
 
 function Index() {
 
@@ -23,7 +25,7 @@ function Index() {
         container: 'flex flex-col max-width pb-[100px] md:pb-[50px]',
         seeMore: 'w-full text-end mb-10',
         link: 'text-white text-end text-2xl lg:text-3xl hover:text-[var(--hover)] transition ease-in-out duration-300 w-auto',
-        containerBoxItems: 'flex w-full gap-10 overflow-x-auto min-h-[200px] md:min-h-[150px] max-h-[300px] justify-between scrollbar-thin'
+        containerBoxItems: 'flex w-full gap-10 overflow-x-auto overflow-y-hidden min-h-[200px] md:min-h-[150px] max-h-[300px] justify-between scrollbar-thin'
     }
 
     return (
@@ -67,14 +69,12 @@ function Index() {
 
                 <section className={sectionTwoStyles.container}>
                     <div className={sectionTwoStyles.seeMore}>
-                        <a href="" className={sectionTwoStyles.link}>Ver mas</a>
+                        <Link to='/categoria' className={sectionTwoStyles.link}>Ver mas</Link>
                     </div>
                     <div className={sectionTwoStyles.containerBoxItems}>
-                        <ItemCard image={computador1} title='Radeon 5700 - Nvidia 5090' price='$1.200.000' />
-                        <ItemCard image={computador2} title='Radeon 5700 - Nvidia 5090' price='$1.200.000' />
-                        <ItemCard image={computador3} title='Radeon 5700 - Nvidia 5090' price='$1.200.000' />
-                        <ItemCard image={computador1} title='Radeon 5700 - Nvidia 5090' price='$1.200.000' />
-                        <ItemCard image={computador1} title='Radeon 5700 - Nvidia 5090' price='$1.200.000' />
+                        {allProducts.map((product) => (
+                            <ItemCard key={product.id} product={product} />
+                        ))}
                     </div>
                 </section>
             </main>

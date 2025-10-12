@@ -9,7 +9,7 @@ function Nosotros() {
     }
 
     return (
-        <div className='container-estatico '>
+        <div className='container-body-normal '>
             <main
                 className='main-style !py-20 items-center flex '>
                 <section className={styles.containerNosotros}>

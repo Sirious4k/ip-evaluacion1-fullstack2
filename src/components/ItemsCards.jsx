@@ -1,23 +1,30 @@
-function ItemCard({ image, title, price }) {
-
+function ItemCard({ product }) {
     const styles = {
-        boxItemSectionTwo: 'flex flex-col max-w-[250px] flex-shrink-0 pb-5 gap-5',
-        containerImage: 'max-w-[250px] max-h-[200px] rounded-lg overflow-hidden',
-        h1Items: 'text-5xl text-white truncate tracking-wider',
+        boxItemSectionTwo: 'flex flex-col w-full max-w-[300px] mb-5 ',
+        containerImage: 'w-full h-[200px] rounded-lg overflow-hidden mb-[10px]',
+        h1Items: 'text-5xl/15 text-white truncate tracking-wider mb-5',
         h2Items: 'text-4xl text-amber-300'
-    }
+
+
+
+    };
+
     return (
-        <div className={styles.boxItemSectionTwo}>
-            <div className={styles.containerImage}>
-                <img
-                    src={image}
-                    alt=""
-                    className='size-items' />
+        <div className="w-full grid  grid-cols-[repeat(auto-fill,minmax(250px,300px))] items-center">
+            <div className={styles.boxItemSectionTwo}>
+                <div className={styles.containerImage}>
+                    <img
+                        src={product.image}
+                        alt={product.title}
+                        className="size-items"
+                    />
+                </div>
+                <h1 className={styles.h1Items}>{product.title}</h1>
+                <h2 className={styles.h2Items}>${product.price}</h2>
             </div>
-            <h1 className={styles.h1Items}>{title}</h1>
-            <h2 className={styles.h2Items}>{price}</h2>
         </div>
     );
 }
+
 
 export default ItemCard

@@ -34,7 +34,7 @@ function SignUp() {
         loginButton: '!inline-block cursor-pointer !text-[var(--bg-button)] hover:!text-[var(--bg-button-hover)] !font-black transition-color duration-300 ease-in-out'
     }
     return (
-        <div className='container-estatico'>
+        <div className='container-body-normal'>
             <main className={styles.mainStyle}>
                 <div className={styles.boxSignUp}>
                     <div className='flex justify-between '>
