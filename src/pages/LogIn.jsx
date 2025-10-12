@@ -33,7 +33,7 @@ function LogIn() {
     }
 
     return (
-        <div className='container-estatico'>
+        <div className='container-body-normal'>
             <main className={styles.mainStyle}>
                 <div className={styles.boxLogIn}>
                     <div className='flex justify-between '>

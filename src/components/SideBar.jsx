@@ -1,29 +1,39 @@
+// Sidebar.js
 import { Link } from "react-router-dom";
 
-export default function Sidebar({ selected }) {
-    const base = "/categorias";
+function Sidebar({ categories = [], selected }) {
+    const styles = {
+        containerSidebar: 'flex flex-col h-full min-w-fit pr-10 ',
+        title: 'format-text-h2 mb-4',
+        linkDefault: 'format-text-p !not-italic !text-white px-5 py-2 rounded hover:bg-gray-700 !text-3xl hover:!bg-[var(--bg-button)] ',
+        linkSelected: 'format-text-p !not-italic !text-white !opacity-100 bg-[var(--bg-button)] px-5 py-2 rounded !text-4xl',
+    }
 
     return (
-        <aside className="w-64 p-6 border-r flex flex-col gap-4">
-            <h2 className="text-xl font-semibold mb-2">Categorías</h2>
-            <Link
-                to={`${base}?type=computadoras`}
-                className={`p-2 rounded ${selected === "computadoras" ? "bg-blue-500 text-white" : "hover:bg-gray-100"}`}
-            >
-                Computadoras
-            </Link>
-            <Link
-                to={`${base}?type=consolas`}
-                className={`p-2 rounded ${selected === "consolas" ? "bg-blue-500 text-white" : "hover:bg-gray-100"}`}
-            >
-                Consolas
-            </Link>
-            <Link
-                to={base}
-                className={`p-2 rounded ${!selected ? "bg-blue-500 text-white" : "hover:bg-gray-100"}`}
-            >
-                Todas
-            </Link>
+        <aside className={styles.containerSidebar}>
+            <h2 className={styles.title}>Categorías</h2>
+            <ul className="flex flex-col gap-5">
+                <li >
+                    <Link
+                        to="/categoria"
+                        className={selected === "todas" ? styles.linkSelected : styles.linkDefault}
+                    >
+                        Todas las Categorías
+                    </Link>
+                </li>
+                {categories.map(cat => (
+                    <li key={cat}>
+                        <Link
+                            to={`/categoria?cat=${encodeURIComponent(cat)}`}
+                            className={selected === cat ? styles.linkSelected : styles.linkDefault}
+                        >
+                            {cat}
+                        </Link>
+                    </li>
+                ))}
+            </ul>
         </aside>
     );
 }
+
+export default Sidebar;

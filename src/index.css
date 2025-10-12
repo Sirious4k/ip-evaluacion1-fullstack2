@@ -52,21 +52,8 @@ li {
 .container-body-normal {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: calc(100vh - 97.5px);
   background: linear-gradient(to bottom right, #00001f, #00001f, #080844);
-}
-
-.container-estatico {
-  flex-direction: column;
-  display: flex;
-  min-height: calc(100vh - 64px - 64px);
-  background: linear-gradient(to bottom right, #00001f, #00001f, #080844);
-}
-
-@media (min-width: 1320px) {
-  .container-estatico {
-    min-height: calc(100vh - 97.5px);
-  }
 }
 
 /* Main styles */

@@ -4,12 +4,15 @@ import LogoComponent from './LogoComponent'
 import IconUser from '../assets/icons/icon-nav-user.svg?react'
 import { Link } from 'react-router-dom'
 import Button from './ButtonLinkComponent'
+import { products as allProducts } from '../utils/products';
+
 
 function Nav() {
   useEffect(() => {
     const cleanup = initNavDropdown()
     return () => cleanup && cleanup()
   }, [])
+  const categories = Array.from(new Set(allProducts.map(p => p.category)));
 
   const styles = {
     mainNav:
@@ -29,7 +32,7 @@ function Nav() {
     //dropdown
     dropdown:
       'absolute mt-5 bg-[var(--bg-primary-color)] border border-[#00ffea]/50 shadow-lg list-none dropdown hidden',
-    dropdownItem: 'px-6 py-2 text-white hover:bg-[#00ffea1a]',
+    dropdownItem: 'min-w-max px-6 py-2 text-white hover:bg-[#00ffea1a]',
   }
 
   return (
@@ -51,14 +54,16 @@ function Nav() {
           </li>
 
           <li className='relative categoria-item'>
-            <Link to='/categoria' className={styles.itemsHover}>Categoría</Link>
+            <p className={styles.itemsHover}>Categoría</p>
             <ul className={styles.dropdown}>
               <li className={styles.dropdownItem}>
-                <a href='../pages/Computadores.js'>Computadores</a>
+                <Link to='/categoria'>Todas las categorias</Link>
               </li>
-              <li className={styles.dropdownItem}>
-                <a href='../pages/Consolas.js'>Consolas</a>
-              </li>
+              {categories.map((cat) => (
+                <li key={cat} className={styles.dropdownItem}>
+                  <Link to={`/categoria?cat=${encodeURIComponent(cat)}`}>{cat}</Link>
+                </li>
+              ))}
             </ul>
           </li>
           <li className={styles.itemsHover}>

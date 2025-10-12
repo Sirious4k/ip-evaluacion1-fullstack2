@@ -28,7 +28,7 @@ function Contacto() {
     }
 
     return (
-        <div className='container-estatico'>
+        <div className='container-body-normal'>
             <main className={containerStyles.main}>
                 <section className={containerStyles.section}>
                     <header >
