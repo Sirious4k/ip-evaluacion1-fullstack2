@@ -11,9 +11,9 @@ function SignUp() {
     }, []);
 
     const styles = {
-        mainStyle: 'flex items-center justify-center min-h-[100vh] !mt-0 main-style  bg-linear-to-b  bg-linear-to-br from-[var(--bg-primary-color)] via-[var(--bg-primary-color)] to-[#080844] ',
+        mainStyle: 'flex items-center justify-center min-h-[100vh] !mt-0 !py-8 main-style  bg-linear-to-b  bg-linear-to-br from-[var(--bg-primary-color)] via-[var(--bg-primary-color)] to-[#080844] ',
 
-        boxSignUp: 'flex flex-col max-h-auto lg:max-w-[500px] w-full p-8 bg-[var(--white-variant)] shadow-2xl'
+        boxSignUp: 'flex flex-col max-h-auto lg:max-w-[500px] md:w-[500px] w-full   p-8 bg-[var(--white-variant)] shadow-2xl'
     }
 
     const formStyles = {
