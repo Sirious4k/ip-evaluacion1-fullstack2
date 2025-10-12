@@ -41,7 +41,6 @@ function Nav() {
         <div className={styles.sectionTopNav}>
           <LogoComponent />
           <div className={styles.iconsTopNav}>
-            {/* // Falta definir enlace  */}
             <Link to='/login'>
               <IconUser className='icon-size hover:!text-[var(--hover)] transition-color ease-in-out duration-300' />
             </Link>
@@ -54,7 +53,7 @@ function Nav() {
           </li>
 
           <li className='relative categoria-item'>
-            <p className={styles.itemsHover}>Categoría</p>
+            <p className={styles.itemsHover}>Categorías</p>
             <ul className={styles.dropdown}>
               <li className={styles.dropdownItem}>
                 <Link to='/categoria'>Todas las categorias</Link>
