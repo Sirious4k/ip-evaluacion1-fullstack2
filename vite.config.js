@@ -10,5 +10,10 @@ export default defineConfig({
     svgr(),
   ],
 
+  build: {
+    rollupOptions: {
+      external: [/tests/]
+    }
+  }
 
 })
