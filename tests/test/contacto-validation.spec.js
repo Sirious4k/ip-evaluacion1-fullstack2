@@ -49,7 +49,7 @@ describe('Pruebas de validación del formulario de contacto', () => {
   });
 
   it('debería pasar todas las validaciones si los campos son correctos', () => {
-    spyOn(window, 'alert'); // Evita que abra alert
+    spyOn(window, 'alert');
 
     document.getElementById('nombre-contacto').value = 'Juan Pérez';
     document.getElementById('telefono-contacto').value = '987654321';
