@@ -15,7 +15,7 @@ function Categoria() {
     const categories = Array.from(new Set(allProducts.map(p => p.category)));
 
     return (
-        <div className="container-body-normal">
+        <div className="container-body-normal gradient-main">
             <div className="main-style !py-20">
                 <div className="max-width flex flex-col gap-[20px] md:gap-0 md:flex-row flex-shrink-0 pb-5">
                     <Sidebar categories={categories} selected={selectedCategory} />

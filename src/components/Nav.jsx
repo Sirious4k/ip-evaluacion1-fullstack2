@@ -27,7 +27,7 @@ function Nav() {
     // Items Nav
     containerItemsNav: 'flex gap-[20px] text-[1.5rem] lg:text-[2rem]',
     itemsHover:
-      'text-white transition-colors duration-300 ease-in-out hover:text-[#00ffea]/90',
+      'text-white transition-colors duration-300 ease-in-out hover:text-[var(--hover-alt)]/90',
 
     //dropdown
     dropdown:

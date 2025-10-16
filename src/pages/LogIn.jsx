@@ -12,7 +12,7 @@ function LogIn() {
     }, []);
 
     const styles = {
-        mainStyle: 'flex items-center justify-center min-h-[100vh] !mt-0 main-style bg-linear-to-br from-[var(--bg-primary-color)] via-[var(--bg-primary-color)] to-[#080844]  ',
+        mainStyle: 'flex items-center justify-center min-h-[100vh] !mt-0 main-style  ',
         boxLogIn: 'flex flex-col md:max-w-[500px] md:w-[500px] w-full  p-8 bg-[var(--white-variant)] shadow-2xl'
     }
 
@@ -33,7 +33,7 @@ function LogIn() {
     }
 
     return (
-        <div className='container-body-normal'>
+        <div className='container-body-normal gradient-main'>
             <main className={styles.mainStyle}>
                 <div className={styles.boxLogIn}>
                     <div className='flex justify-between '>

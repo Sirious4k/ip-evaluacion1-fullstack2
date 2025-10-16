@@ -24,12 +24,12 @@ function Index() {
     const sectionTwoStyles = {
         container: 'flex flex-col max-width pb-[100px] md:pb-[50px]',
         seeMore: 'w-full text-end mb-10',
-        link: 'text-white text-end text-2xl lg:text-3xl hover:text-[var(--hover)] transition ease-in-out duration-300 w-auto',
+        link: 'text-white text-end text-2xl lg:text-3xl hover:text-[var(--hover-alt)]/90 transition ease-in-out duration-300 w-auto',
         containerBoxItems: 'flex w-full gap-10 overflow-x-auto overflow-y-hidden min-h-[200px] md:min-h-[150px] max-h-[300px] justify-between scrollbar-thin'
     }
 
     return (
-        <div className="container-body-normal">
+        <div className="container-body-normal gradient-main">
             <header className="relative">
                 <div className={heroStyles.container}>
                     <div className={heroStyles.boxHeader}>
