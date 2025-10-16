@@ -6,6 +6,7 @@
 :root {
   --bg-primary-color: #0a0a0f;
   --bg-secondary: #1e1e2f4d;
+  --bg-for-gradient: #080844;
   --white-variant: #fefefe;
   --white-variant-hover: #f1f1f1;
   --bg-button: #ff005c;
@@ -47,7 +48,12 @@ li {
 }
 
 .gradient-main {
-  background: linear-gradient(to bottom right, #0a0a0f, #0a0a0f, #080844);
+  background: linear-gradient(
+    to bottom right,
+    var(--bg-primary-color),
+    var(--bg-primary-color),
+    var(--bg-for-gradient)
+  );
 }
 
 /* Container styles */
