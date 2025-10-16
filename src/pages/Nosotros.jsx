@@ -3,13 +3,13 @@ function Nosotros() {
     const styles = {
         containerNosotros: 'flex flex-col max-width',
 
-        boxContentNosotros: 'flex flex-col w-full h-auto p-[50px] gap-[20px] bg-[var(--bg-cards)] ',
+        boxContentNosotros: 'flex flex-col w-full h-auto p-[50px] gap-[20px] bg-[var(--bg-secondary)]/30 ',
 
         formatText: 'format-text-p !text-left'
     }
 
     return (
-        <div className='container-body-normal '>
+        <div className='container-body-normal gradient-main'>
             <main
                 className='main-style !py-20 items-center flex '>
                 <section className={styles.containerNosotros}>
