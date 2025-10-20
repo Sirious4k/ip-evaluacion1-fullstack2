@@ -9,7 +9,7 @@ function DashboardCard({
 }) {
   return (
     <div
-      className={`${color} text-black p-6 rounded-lg flex flex-col justify-between gap-5 items-center w-full h-fit`}
+      className={`${color} text-black p-6 rounded-lg flex flex-col justify-between gap-5 items-center w-full h-fit hover:bg-gray-400 transition duration-300 ease-in-out cursor-pointer`}
     >
       <div className='flex flex-col items-center   gap-3'>
         {Icon && <Icon className='w-12 h-12 text-black opacity-90' />}
