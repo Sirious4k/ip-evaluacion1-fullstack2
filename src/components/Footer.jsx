@@ -1,6 +1,7 @@
 import LogoComponent from './LogoComponent.jsx'
 import DiscordIcon from '../assets/icons/logo-discord.svg?react'
 import InstagramIcon from '../assets/icons/logo-insta.svg?react'
+import { Link } from 'react-router-dom'
 
 function Footer() {
   const styles = {
@@ -42,7 +43,7 @@ function Footer() {
               className='icon-size'
             />
           </a>
-          <a href='/panel'>Panel</a>
+          <Link to='/panel'>Panel</Link>
         </div>
       </div>
     </footer>
