@@ -9,6 +9,7 @@ import MainLayout from './layouts/MainLayout.jsx'
 import LogLayout from './layouts/LogLayout.jsx'
 import Producto from './pages/Producto.jsx'
 import Carrito from './pages/Carrito.jsx'
+import Panel from './pages/Panel.jsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
@@ -50,6 +51,10 @@ function App() {
           <Route
             path='/signup'
             element={<SignUp />}
+          />
+          <Route
+            path='/panel'
+            element={<Panel />}
           />
         </Route>
       </Routes>

@@ -42,6 +42,7 @@ function Footer() {
               className='icon-size'
             />
           </a>
+          <a href='/panel'>Panel</a>
         </div>
       </div>
     </footer>

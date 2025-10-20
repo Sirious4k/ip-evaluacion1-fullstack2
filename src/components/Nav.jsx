@@ -5,6 +5,7 @@ import LogoComponent from './LogoComponent'
 import IconUser from '../assets/icons/icon-nav-user.svg?react'
 import { Link } from 'react-router-dom'
 import Button from './ButtonLinkComponent'
+import IconCart from '../assets/icons/icon-cart.svg?react'
 import { products as allProducts } from '../utils/products'
 
 function Nav() {
@@ -49,7 +50,8 @@ function Nav() {
     iconsTopNav: 'flex items-center gap-[20px]',
 
     // Items Nav
-    containerItemsNav: 'flex gap-[20px] text-[1.5rem] lg:text-[2rem]',
+    containerItemsNav:
+      'flex gap-[20px] text-[1.5rem] lg:text-[2rem] items-center',
     itemsHover:
       'text-white transition-colors duration-300 ease-in-out hover:text-[var(--hover-alt)]/90',
 
@@ -100,12 +102,17 @@ function Nav() {
           <li className={styles.itemsHover}>
             <Link to='/nosotros'>Nosotros</Link>
           </li>
-          <Link
-            to='/carrito'
-            className='text-white'
-          >
-            Carrito ({items.length})
-          </Link>
+          <li className='ml-auto'>
+            <Link
+              to='/carrito'
+              className='group text-white hover:text-[var(--hover-alt)] transition-colors duration-300 ease-in-out'
+            >
+              <div className='flex items-center'>
+                <IconCart className='icon-size !w-12 !h-12 transition-colors duration-300 ease-in-out group-hover:!text-[var(--hover-alt)]' />
+                <span>({items.length})</span>
+              </div>
+            </Link>
+          </li>
         </ul>
       </section>
     </nav>

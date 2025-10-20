@@ -2,7 +2,7 @@ import Button from '../components/ButtonLinkComponent.jsx'
 import BoxComponent from '../components/BoxComponent.jsx'
 import ItemCard from '../components/ItemsCards.jsx'
 import { products as allProducts } from '../utils/products'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 
 function Index() {
   const heroStyles = {
@@ -37,7 +37,7 @@ function Index() {
               <br />
               En un solo lugar
             </h1>
-            <Button href='http'>Catalogo</Button>
+            <Button href='/categoria'>Catalogo</Button>
           </div>
         </div>
       </header>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { initForm } from '../utils/pago-validation.js'
+import CloseIcon from '../assets/icons/icon-close.svg?react'
 
 function Carrito() {
   const [cart, setCart] = useState([])
@@ -40,7 +41,7 @@ function Carrito() {
   }
 
   const formStyles = {
-    formBox: 'flex flex-col w-full h-full  gap-[10px]',
+    formBox: 'flex flex-col w-full md:max-w-[500px] h-full  gap-[10px]',
     leftSide: 'flex flex-col w-full h-full gap-[10px] ',
     inputPhone: 'flex items-center gap-[20px]',
     input: '!text-[var(--white-variant)] bg-inherit',
@@ -86,9 +87,9 @@ function Carrito() {
 
                     <button
                       onClick={() => eliminarDelCarrito(item.id)}
-                      className='text-red-400 hover:text-red-500 transition cursor-pointer'
+                      className='text-red-400 hover:text-red-500 transition ease-in-out duration-300 cursor-pointer'
                     >
-                      ❌
+                      <CloseIcon className='!w-15 !h-15' />
                     </button>
                   </li>
                 ))}
@@ -173,6 +174,19 @@ function Carrito() {
               ></input>
             </div>
 
+            <div className='flex justify-between items-center mt-10 border-t border-[var(--hover-alt)]/30 pt-5'>
+              <h1 className='format-text-h2 tracking-wider'>Subtotal</h1>
+              <h2 className='format-text-h2 !text-amber-300'>
+                $
+                {cart
+                  .reduce(
+                    (total, item) =>
+                      total + Number(item.price.replace(/\./g, '')),
+                    0,
+                  )
+                  .toLocaleString('es-CL')}
+              </h2>
+            </div>
             <div className={formStyles.boxButton}>
               <button
                 type='submit'
