@@ -1,18 +1,42 @@
 import { useEffect } from 'react'
+import { useState } from 'react'
 import { initNavDropdown } from '../utils/dropdown'
 import LogoComponent from './LogoComponent'
 import IconUser from '../assets/icons/icon-nav-user.svg?react'
 import { Link } from 'react-router-dom'
 import Button from './ButtonLinkComponent'
-import { products as allProducts } from '../utils/products';
-
+import { products as allProducts } from '../utils/products'
 
 function Nav() {
+  const [items, setItems] = useState([])
+
+  // Inicializa el dropdown del menú
   useEffect(() => {
     const cleanup = initNavDropdown()
     return () => cleanup && cleanup()
   }, [])
-  const categories = Array.from(new Set(allProducts.map(p => p.category)));
+
+  // 🔁 Función que actualiza el estado leyendo el localStorage
+  const updateCart = () => {
+    const stored = JSON.parse(localStorage.getItem('cart')) || []
+    setItems(stored)
+  }
+
+  // 📡 Escucha los eventos globales
+  useEffect(() => {
+    updateCart() // leer al montar
+
+    // 👂 escuchar eventos personalizados y cambios de storage
+    window.addEventListener('cartUpdated', updateCart)
+    window.addEventListener('storage', updateCart)
+
+    return () => {
+      window.removeEventListener('cartUpdated', updateCart)
+      window.removeEventListener('storage', updateCart)
+    }
+  }, [])
+
+  const categories = Array.from(new Set(allProducts.map(p => p.category)))
 
   const styles = {
     mainNav:
@@ -44,7 +68,7 @@ function Nav() {
             <Link to='/login'>
               <IconUser className='icon-size hover:!text-[var(--hover)] transition-color ease-in-out duration-300' />
             </Link>
-            <Button href='/signup'>Registro</Button >
+            <Button href='/signup'>Registro</Button>
           </div>
         </div>
         <ul className={styles.containerItemsNav}>
@@ -58,9 +82,14 @@ function Nav() {
               <li className={styles.dropdownItem}>
                 <Link to='/categoria'>Todas las categorias</Link>
               </li>
-              {categories.map((cat) => (
-                <li key={cat} className={styles.dropdownItem}>
-                  <Link to={`/categoria?cat=${encodeURIComponent(cat)}`}>{cat}</Link>
+              {categories.map(cat => (
+                <li
+                  key={cat}
+                  className={styles.dropdownItem}
+                >
+                  <Link to={`/categoria?cat=${encodeURIComponent(cat)}`}>
+                    {cat}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -71,6 +100,12 @@ function Nav() {
           <li className={styles.itemsHover}>
             <Link to='/nosotros'>Nosotros</Link>
           </li>
+          <Link
+            to='/carrito'
+            className='text-white'
+          >
+            Carrito ({items.length})
+          </Link>
         </ul>
       </section>
     </nav>
