@@ -48,12 +48,10 @@ li {
 }
 
 .gradient-main {
-  background: linear-gradient(
-    to bottom right,
-    var(--bg-primary-color),
-    var(--bg-primary-color),
-    var(--bg-for-gradient)
-  );
+  background: linear-gradient(to bottom right,
+      var(--bg-primary-color),
+      var(--bg-primary-color),
+      var(--bg-for-gradient));
 }
 
 /* Container styles */
