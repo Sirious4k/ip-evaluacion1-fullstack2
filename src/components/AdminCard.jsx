@@ -1,4 +1,3 @@
-import { ShoppingCart } from 'lucide-react'
 function DashboardCard({
   title,
   value,
