@@ -1,5 +1,3 @@
-import { ShoppingCart } from 'lucide-react'
-
 function DashboardCard({ title, icon: Icon, subtitle, color }) {
   return (
     <div
