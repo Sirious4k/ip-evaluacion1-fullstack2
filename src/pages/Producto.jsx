@@ -1,8 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { products } from '../utils/products'
 
-const CART_KEY = 'cart'
-
 function Producto() {
   const { id } = useParams()
   const product = products.find(p => p.id === Number(id))
