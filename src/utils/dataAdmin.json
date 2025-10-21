@@ -1,0 +1,93 @@
+{
+  "resumen": [
+    {
+      "title": "Compras",
+      "value": 1234,
+      "details": {
+        "label": "Probabilidad de aumento",
+        "value": "20%"
+      },
+      "color": "bg-blue-500",
+      "icon": "ShoppingCart"
+    },
+    {
+      "title": "Productos",
+      "value": 400,
+      "details": {
+        "label": "Inventario actual",
+        "value": 500
+      },
+      "color": "bg-green-500",
+      "icon": "Box"
+    },
+    {
+      "title": "Usuarios",
+      "value": 890,
+      "details": {
+        "label": "Nuevos usuarios este mes",
+        "value": 120
+      },
+      "color": "bg-yellow-500",
+      "icon": "Users"
+    }
+  ],
+
+  "resumen2": [
+    {
+      "title": "Dashboard",
+      "details": {
+        "subtitle": "Visión general de todas las métricas y estadísticas clave del sistema"
+      },
+      "icon": "Gauge"
+    },
+    {
+      "title": "Órdenes",
+      "details": {
+        "subtitle": "Gestión y seguimiento de todas las órdenes de compra realizadas"
+      },
+      "icon": "ShoppingCart"
+    },
+    {
+      "title": "Productos",
+      "details": {
+        "subtitle": "Administrar inventario y detalles de los productos disponibles"
+      },
+      "icon": "Box"
+    },
+    {
+      "title": "Categorías",
+      "details": {
+        "subtitle": "Organizar productos en categorías para facilitar su navegación"
+      },
+      "icon": "Tag"
+    },
+    {
+      "title": "Usuarios",
+      "details": {
+        "subtitle": "Gestión de cuentas de usuario y sus roles dentro del sistema"
+      },
+      "icon": "Users"
+    },
+    {
+      "title": "Reportes",
+      "details": {
+        "subtitle": "Generación de informes detallados sobre las operaciones del sistema"
+      },
+      "icon": "ChartNoAxesColumnIncreasing"
+    },
+    {
+      "title": "Perfil",
+      "details": {
+        "subtitle": "Administración de la información personal y configuraciones de la cuenta"
+      },
+      "icon": "User"
+    },
+    {
+      "title": "Tienda",
+      "details": {
+        "subtitle": "Visualiza tu tienda en tiempo real y los reportes de los usuarios"
+      },
+      "icon": "Store"
+    }
+  ]
+}
