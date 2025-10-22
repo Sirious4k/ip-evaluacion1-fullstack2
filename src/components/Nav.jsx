@@ -11,23 +11,19 @@ import { products as allProducts } from '../utils/products'
 function Nav() {
   const [items, setItems] = useState([])
 
-  // Inicializa el dropdown del menú
   useEffect(() => {
     const cleanup = initNavDropdown()
     return () => cleanup && cleanup()
   }, [])
 
-  // 🔁 Función que actualiza el estado leyendo el localStorage
   const updateCart = () => {
     const stored = JSON.parse(localStorage.getItem('cart')) || []
     setItems(stored)
   }
 
-  // 📡 Escucha los eventos globales
   useEffect(() => {
-    updateCart() // leer al montar
+    updateCart()
 
-    // 👂 escuchar eventos personalizados y cambios de storage
     window.addEventListener('cartUpdated', updateCart)
     window.addEventListener('storage', updateCart)
 
@@ -42,20 +38,13 @@ function Nav() {
   const styles = {
     mainNav:
       'fixed w-full min-h-16 md:min-h-20 top-0 p-8 bg-[var(--bg-primary-color)] z-100',
-
     containerSectionsNav: 'flex flex-col w-full h-full max-width gap-[20px]',
-
-    // Top Nav
     sectionTopNav: 'flex justify-between items-center w-full',
     iconsTopNav: 'flex items-center gap-[20px]',
-
-    // Items Nav
     containerItemsNav:
       'flex gap-[20px] text-[1.5rem] lg:text-[2rem] items-center',
     itemsHover:
       'text-white transition-colors duration-300 ease-in-out hover:text-[var(--hover-alt)]/90',
-
-    //dropdown
     dropdown:
       'absolute mt-5 bg-[var(--bg-primary-color)] border border-[#00ffea]/50 shadow-lg list-none dropdown hidden',
     dropdownItem: 'min-w-max px-6 py-2 text-white hover:bg-[#00ffea1a]',

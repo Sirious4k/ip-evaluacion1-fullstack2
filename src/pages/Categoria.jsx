@@ -6,11 +6,11 @@ import { products as allProducts } from '../utils/products'
 function Categoria() {
   const location = useLocation()
   const query = new URLSearchParams(location.search)
-  const selectedCategory = query.get('cat') || 'todas'
+  const selectedCategory = query.get('cat') || null
 
   const filteredProducts = allProducts.filter(
     product =>
-      selectedCategory === 'todas' || product.category === selectedCategory,
+      selectedCategory === null || product.category === selectedCategory,
   )
 
   const categories = Array.from(new Set(allProducts.map(p => p.category)))

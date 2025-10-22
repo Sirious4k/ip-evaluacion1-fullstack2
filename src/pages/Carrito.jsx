@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { initForm } from '../utils/pago-validation.js'
 import CloseIcon from '../assets/icons/icon-close.svg?react'
 
@@ -13,7 +12,12 @@ function Carrito() {
   }
 
   useEffect(() => {
-    setCart(JSON.parse(localStorage.getItem(cartkey) || '[]'))
+    const stored = JSON.parse(localStorage.getItem(cartkey) || '[]')
+    const realItems = stored.filter(item => item && item.price)
+    if (realItems.length !== stored.length) {
+      localStorage.setItem(cartkey, JSON.stringify(realItems))
+    }
+    setCart(realItems)
     initForm()
   }, [])
 

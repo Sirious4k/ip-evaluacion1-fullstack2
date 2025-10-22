@@ -18,7 +18,7 @@ function Sidebar({ categories = [], selected }) {
           <Link
             to='/categoria'
             className={
-              selected === 'todas' ? styles.linkSelected : styles.linkDefault
+              selected === null ? styles.linkSelected : styles.linkDefault
             }
           >
             Todas las Categorías
