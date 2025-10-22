@@ -1,11 +1,17 @@
 module.exports = function (config) {
   config.set({
     frameworks: ['jasmine', 'webpack'],
-    files: ['test/**/*.spec.js'],
+    files: [
+      { pattern: 'src/*.js', type: 'module' },
+      { pattern: 'specs/*.spec.js', type: 'module' }
+    ],
     preprocessors: {
-      'test/**/*.spec.js': ['webpack']
+      'src/*.js': ['webpack'],
+      'specs/*.spec.js': ['webpack']
     },
-    webpack: { mode: 'development' },
+    webpack: {
+      mode: 'development'
+    },
     browsers: ['ChromeHeadless'],
     reporters: ['progress'],
     singleRun: true
