@@ -9,7 +9,7 @@ function BoxComponent({ title, content }) {
     <div className={styles.Box}>
       <h2 className='format-text-h2'>{title}</h2>
       <div className={styles.pContainer}>
-        <p className='format-text-p'>{content}</p>
+        <p className='format-text-p md:!text-3xl'>{content}</p>
       </div>
     </div>
   )

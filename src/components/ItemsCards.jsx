@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 function ItemCard({ product }) {
   const styles = {
     boxItemSectionTwo: 'flex flex-col w-full max-w-[300px] mb-5 ',
-    containerImage: 'w-full h-[200px] rounded-lg overflow-hidden mb-[10px]',
-    h1Items: 'text-5xl/15 text-white truncate tracking-wider mb-5',
-    h2Items: 'text-4xl text-amber-300',
+    containerImage: 'w-full h-[180px] rounded-lg overflow-hidden mb-[10px]',
+    h1Items: 'text-3xl text-white truncate tracking-wider mb-5',
+    h2Items: 'text-2xl text-amber-300',
   }
 
   return (

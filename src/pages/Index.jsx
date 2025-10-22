@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 function Index() {
   const heroStyles = {
     container:
-      'flex items-center w-full min-h-[100vh] pt-67 lg:pt-70 p-8 bg-[url("/header-img.png")] bg-cover bg-center bg-black/50 bg-blend-multiply text-white',
+      'flex items-center w-full min-h-[100vh] pt-[140px] p-8 bg-[url("/header-img.png")] bg-cover bg-center bg-black/50 bg-blend-multiply text-white',
     boxHeader: 'flex flex-col items-start w-full h-full max-width gap-[20px]',
     h1: 'font-black text-[6rem]',
   }

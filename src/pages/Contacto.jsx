@@ -27,7 +27,7 @@ function Contacto() {
     formatTextH2: 'format-text-h2 !mb-0',
     boxButton: 'flex w-full col-2 justify-end',
     submitButton:
-      'w-full md:w-[200px] py-[1rem] px-[0.5rem] text-center text-[1.8rem] bg-[var(--bg-button)] text-[var(--white-variant)] cursor-pointer transition ease-in-out duration-300 hover:bg-[var(--bg-button-hover)] hover:text-[var(--white-variant-hover)]',
+      'w-full md:w-[200px] py-[1rem] px-[0.5rem]  format-text-p !not-italic !text-center bg-[var(--bg-button)] text-[var(--white-variant)] cursor-pointer transition ease-in-out duration-300 hover:bg-[var(--bg-button-hover)] hover:text-[var(--white-variant-hover)]',
   }
 
   return (
