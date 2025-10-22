@@ -7,11 +7,7 @@ function Footer() {
   const styles = {
     containerFooter:
       'grid grid-cols-[repeat(3,1fr)] w-full h-auto p-8 max-width text-white',
-
-    // centro
     derechosStyle: 'flex justify-center items-end text-center',
-
-    //derecha
     redesContainer: 'flex w-full justify-end gap-[20px]',
   }
 

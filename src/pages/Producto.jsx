@@ -16,13 +16,11 @@ function Producto() {
   const styles = {
     buttonStyle:
       'w-full md:max-w-[400px] py-[1rem] px-[5rem] text-center font-black text-[1.8rem] bg-[var(--bg-button)] text-[var(--white-variant)] cursor-pointer transition ease-in-out duration-300 hover:bg-[var(--bg-button-hover)] hover:text-[var(--white-variant-hover)]',
-
     sectionBox: 'flex max-width justify-center w-full',
     containerItemsSection:
       ' bg-[var(--bg-secondary)]/30 p-8 flex flex-col md:flex-row gap-8 md:gap-16',
     imageBox:
       'flex justify-center max-h-[300px] md:max-h-[400px] lg:max-h-[500px] w-auto md:w-[300px] lg:w-[400px] overflow-hidden rounded-lg ',
-
     containerContent: 'flex-1 flex flex-col justify-between',
     upperContent: 'flex flex-col mb-8 md:mb-0',
   }
