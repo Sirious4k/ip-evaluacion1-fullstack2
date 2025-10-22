@@ -37,16 +37,17 @@ function Nav() {
 
   const styles = {
     mainNav:
-      'fixed w-full min-h-16 md:min-h-20 top-0 p-8 bg-[var(--bg-primary-color)] z-100',
-    containerSectionsNav: 'flex flex-col w-full h-full max-width gap-[20px]',
+      'fixed w-full min-h-[140px] h-[140px] top-0 p-8 bg-[var(--bg-primary-color)] z-10',
+    containerSectionsNav:
+      'flex flex-col w-full h-full max-width justify-between',
     sectionTopNav: 'flex justify-between items-center w-full',
     iconsTopNav: 'flex items-center gap-[20px]',
     containerItemsNav:
-      'flex gap-[20px] text-[1.5rem] lg:text-[2rem] items-center',
+      'flex gap-[20px] format-text-p !not-italic  items-center',
     itemsHover:
       'text-white transition-colors duration-300 ease-in-out hover:text-[var(--hover-alt)]/90',
     dropdown:
-      'absolute mt-5 bg-[var(--bg-primary-color)] border border-[#00ffea]/50 shadow-lg list-none dropdown hidden',
+      'absolute mt-5 bg-[var(--bg-primary-color)] !text-left border border-[#00ffea]/50 shadow-lg list-none dropdown hidden z-50',
     dropdownItem: 'min-w-max px-6 py-2 text-white hover:bg-[#00ffea1a]',
   }
 

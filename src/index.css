@@ -1,6 +1,9 @@
 @import '@fontsource/roboto';
+@import '@fontsource/roboto/300.css';
+
 @import '@fontsource/montserrat';
 @import '@fontsource/oswald';
+
 @import 'tailwindcss';
 
 :root {
@@ -8,6 +11,7 @@
   --bg-secondary: #1e1e2f4d;
   --bg-for-gradient: #080844;
   --white-variant: #fefefe;
+  --grey: #fefefece;
   --white-variant-hover: #f1f1f1;
   --bg-button: #ff005c;
   --bg-button-hover: #c30148;
@@ -54,35 +58,36 @@ li {
       var(--bg-for-gradient));
 }
 
+
 /* Container styles */
 .container-body-normal {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 97.5px);
+  min-height: calc(100vh - 100px);
 }
+
+
 
 /* Main styles */
 .main-style {
   flex-grow: 1;
   padding: 50px 16.25px 50px 16.25px;
-  margin-top: 135.78px;
+  margin-top: 140px;
 }
 
 @media (min-width: 769px) {
   .main-style {
     padding-top: 150px;
     padding-bottom: 150px;
-    margin-top: 141.88px;
   }
 }
 
 /* Fonts*/
 .format-text-p {
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   text-align: center;
   font-style: italic;
-  color: var(--white-variant);
-  opacity: 0.8;
+  color: var(--grey);
 }
 
 .group:hover .format-text-p {
@@ -107,7 +112,7 @@ h2,
 h3,
 label {
   font-family: 'Oswald';
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0.5rem;
 }
 
@@ -115,7 +120,8 @@ p,
 li,
 a {
   font-family: 'Roboto', sans-serif;
-  font-weight: 100;
+  font-weight: 300;
+
 }
 
 .section-titles {
@@ -152,8 +158,8 @@ a {
 
 @media (min-width: 769px) {
   .icon-size {
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 3rem;
+    height: 3rem;
   }
 }
 

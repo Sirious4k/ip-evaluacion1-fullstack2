@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 function Footer() {
   const styles = {
     containerFooter:
-      'grid grid-cols-[repeat(3,1fr)] w-full h-auto p-8 max-width text-white',
+      'grid grid-cols-[repeat(3,1fr)] w-full min-h-[100px] p-8 max-width text-white',
     derechosStyle: 'flex justify-center items-end text-center',
     redesContainer: 'flex w-full justify-end gap-[20px]',
   }

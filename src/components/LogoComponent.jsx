@@ -5,7 +5,7 @@ function LogoComponent() {
   const styles = {
     containerLogo: 'inline-flex items-center',
 
-    logoSize: 'w-[8rem] h-auto',
+    logoSize: 'max-w-[50px] h-auto',
   }
 
   return (
