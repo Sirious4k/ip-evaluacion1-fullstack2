@@ -58,7 +58,7 @@ function Nav() {
           <LogoComponent />
           <div className={styles.iconsTopNav}>
             <Link to='/login'>
-              <IconUser className='icon-size hover:!text-[var(--hover)] transition-color ease-in-out duration-300' />
+              <IconUser className='icon-size hover:!text-[var(--hover-alt)] transition-color ease-in-out duration-300' />
             </Link>
             <Button href='/signup'>Registro</Button>
           </div>
