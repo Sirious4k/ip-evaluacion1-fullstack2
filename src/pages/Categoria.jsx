@@ -20,14 +20,13 @@ function Categoria() {
           <div className='w-full grid gap-15 grid-cols-[repeat(auto-fill,minmax(270px,4fr))] items-center'>
             {allProducts
               .filter(
-                product =>
-                  selectedCategory === null ||
-                  product.category === selectedCategory,
+                p =>
+                  selectedCategory === null || p.category === selectedCategory,
               )
-              .map(product => (
+              .map(p => (
                 <ItemCard
-                  key={product.id}
-                  product={product}
+                  key={p.id}
+                  product={p}
                 />
               ))}
           </div>

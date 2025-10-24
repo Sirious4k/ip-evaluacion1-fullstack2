@@ -4,25 +4,19 @@ import CloseIcon from '../assets/icons/icon-close.svg?react'
 
 function Carrito() {
   const [cart, setCart] = useState([])
-  const cartKey = 'cart'
 
   const updateCart = () => {
-    const stored = JSON.parse(localStorage.getItem('cart')) || []
-    setCart(stored)
+    const stored = JSON.parse(localStorage.getItem('cart') || '[]')
+    const filterItems = stored.filter(item => item && item.price)
+    if (filterItems.length !== stored.length) {
+      localStorage.setItem('cart', JSON.stringify(filterItems))
+    }
+    setCart(filterItems)
   }
 
   useEffect(() => {
-    const stored = JSON.parse(localStorage.getItem(cartKey) || '[]')
-    const realItems = stored.filter(item => item && item.price)
-    if (realItems.length !== stored.length) {
-      localStorage.setItem(cartKey, JSON.stringify(realItems))
-    }
-    setCart(realItems)
-    initForm()
-  }, [])
-
-  useEffect(() => {
     updateCart()
+    initForm()
     window.addEventListener('cartUpdated', updateCart)
     return () => window.removeEventListener('cartUpdated', updateCart)
   }, [])
@@ -31,7 +25,7 @@ function Carrito() {
     const nuevoCarrito = [...cart]
     nuevoCarrito.splice(index, 1)
     setCart(nuevoCarrito)
-    localStorage.setItem(cartKey, JSON.stringify(nuevoCarrito))
+    localStorage.setItem('cart', JSON.stringify(nuevoCarrito))
     window.dispatchEvent(new Event('cartUpdated'))
   }
 
@@ -67,7 +61,7 @@ function Carrito() {
                         <img
                           src={item.image}
                           alt={item.title}
-                          className='w-full h-auto object-cover object-center rounded-md'
+                          className='w-full h-full object-contain  object-center rounded-md bg-white'
                         />
                       </div>
                       <div>
