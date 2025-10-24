@@ -87,9 +87,7 @@ export function initForm({ onPagoExitoso } = {}) {
 
       localStorage.removeItem('cart')
 
-      setTimeout(() => {
-        window.dispatchEvent(new Event('cartUpdated'))
-      }, 50)
+      window.dispatchEvent(new Event('cartUpdated'))
 
       alert('Pago realizado con éxito')
 

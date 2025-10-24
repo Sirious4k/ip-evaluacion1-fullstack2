@@ -4,7 +4,7 @@ import CloseIcon from '../assets/icons/icon-close.svg?react'
 
 function Carrito() {
   const [cart, setCart] = useState([])
-  const cartkey = 'cart'
+  const cartKey = 'cart'
 
   const updateCart = () => {
     const stored = JSON.parse(localStorage.getItem('cart')) || []
@@ -12,10 +12,10 @@ function Carrito() {
   }
 
   useEffect(() => {
-    const stored = JSON.parse(localStorage.getItem(cartkey) || '[]')
+    const stored = JSON.parse(localStorage.getItem(cartKey) || '[]')
     const realItems = stored.filter(item => item && item.price)
     if (realItems.length !== stored.length) {
-      localStorage.setItem(cartkey, JSON.stringify(realItems))
+      localStorage.setItem(cartKey, JSON.stringify(realItems))
     }
     setCart(realItems)
     initForm()
@@ -23,25 +23,16 @@ function Carrito() {
 
   useEffect(() => {
     updateCart()
-
     window.addEventListener('cartUpdated', updateCart)
-    window.addEventListener('storage', updateCart)
-
-    return () => {
-      window.removeEventListener('cartUpdated', updateCart)
-      window.removeEventListener('storage', updateCart)
-    }
+    return () => window.removeEventListener('cartUpdated', updateCart)
   }, [])
 
-  const eliminarDelCarrito = id => {
+  const eliminarDelCarrito = index => {
     const nuevoCarrito = [...cart]
-    const index = nuevoCarrito.findIndex(item => item.id === id)
-    if (index !== -1) nuevoCarrito.splice(index, 1)
+    nuevoCarrito.splice(index, 1)
     setCart(nuevoCarrito)
-    localStorage.setItem(cartkey, JSON.stringify(nuevoCarrito))
-    setTimeout(() => {
-      window.dispatchEvent(new Event('cartUpdated'))
-    }, 50)
+    localStorage.setItem(cartKey, JSON.stringify(nuevoCarrito))
+    window.dispatchEvent(new Event('cartUpdated'))
   }
 
   const formStyles = {
@@ -56,13 +47,13 @@ function Carrito() {
   }
   return (
     <div className='container-body-normal gradient-main'>
-      <main className='main-style !py-20 '>
-        <section className='max-width flex gap-[20px]'>
+      <main className='main-style !py-20 flex items-center md:items-start'>
+        <section className='max-width flex flex-col md:flex-row gap-[20px]'>
           <div className='flex flex-col w-full gap-[10px]'>
             <h1 className='format-text-h2 tracking-wider !mb-0'>Tu carrito</h1>
             {cart.length === 0 ? (
               <p className='format-text-p !text-left'>
-                Aún no has agregado nada{' '}
+                Aún no has agregado nada
               </p>
             ) : (
               <ul className='flex flex-col gap-5 w-full'>
@@ -90,7 +81,7 @@ function Carrito() {
                     </div>
 
                     <button
-                      onClick={() => eliminarDelCarrito(item.id)}
+                      onClick={() => eliminarDelCarrito(i)}
                       className='text-red-400 hover:text-red-500 transition ease-in-out duration-300 cursor-pointer'
                     >
                       <CloseIcon className='!w-15 !h-15' />
