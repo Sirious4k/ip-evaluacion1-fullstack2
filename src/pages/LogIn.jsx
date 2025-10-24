@@ -87,7 +87,7 @@ function LogIn() {
                 id='contrasena-log'
                 className={formStyles.input}
               />
-              <div className=' w-full !text-left '>
+              <div className=' w-full !text-left flex justify-between'>
                 <Link
                   to='/signup'
                   className={formStyles.linkLoginButton}
@@ -97,6 +97,12 @@ function LogIn() {
                     {' '}
                     Regístrate aquí.{' '}
                   </span>
+                </Link>
+                <Link
+                  to='/panel'
+                  className='text-2xl'
+                >
+                  Panel
                 </Link>
               </div>
               <div className={formStyles.boxButton}>

@@ -39,12 +39,6 @@ function Footer() {
               className='icon-size'
             />
           </a>
-          <Link
-            to='/panel'
-            className='text-2xl'
-          >
-            Panel
-          </Link>
         </div>
       </div>
     </footer>
