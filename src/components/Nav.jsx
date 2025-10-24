@@ -16,20 +16,20 @@ function Nav() {
     return () => cleanup && cleanup()
   }, [])
 
-  const updateCart = () => {
+  const updateCartCount = () => {
     const stored = JSON.parse(localStorage.getItem('cart')) || []
     setItems(stored)
   }
 
   useEffect(() => {
-    updateCart()
+    updateCartCount()
 
-    window.addEventListener('cartUpdated', updateCart)
-    window.addEventListener('storage', updateCart)
+    window.addEventListener('cartUpdated', updateCartCount)
+    window.addEventListener('storage', updateCartCount)
 
     return () => {
-      window.removeEventListener('cartUpdated', updateCart)
-      window.removeEventListener('storage', updateCart)
+      window.removeEventListener('cartUpdated', updateCartCount)
+      window.removeEventListener('storage', updateCartCount)
     }
   }, [])
 
