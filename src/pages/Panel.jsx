@@ -116,7 +116,7 @@ function Panel() {
 
             <div className='flex justify-center w-full h-full gap-16'>
               {data.resumen.map((item, i) => {
-                const Icon = iconMap[item.icon] || Package
+                const Icon = iconMap[item?.icon] || Package
                 return (
                   <DashboardCard
                     key={i}
@@ -134,7 +134,7 @@ function Panel() {
 
           <div className='w-full h-full grid grid-cols-4 gap-15'>
             {data.resumen2.map((item, i) => {
-              const Icon = iconMap[item.icon] || Package
+              const Icon = iconMap[item?.icon] || Package
               return (
                 <DashboardCardv2
                   key={i}
