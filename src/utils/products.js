@@ -1,6 +1,8 @@
+const API_URL = import.meta.env.VITE_API_URL;
+
 export async function getProducts(){
   try {
-    const response = await fetch('http://localhost:8080/api/productos')
+    const response = await fetch(`${API_URL}/api/productos`)
     if (!response.ok) throw new Error('Error al obtener productos')
       return await response.json()
 
