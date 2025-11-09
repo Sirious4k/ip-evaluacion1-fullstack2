@@ -1,17 +1,19 @@
 import { useParams } from 'react-router-dom'
-import { products } from '../utils/products'
+import { useProductId } from '../hooks/useProductId'
+import { formatPriceCLP } from '../utils/products'
 import { Link } from 'react-router-dom'
 import ArrowIcon from '../assets/icons/icon-arrow.svg?react'
 function Producto() {
   const { id } = useParams()
-  const product = products.find(p => p.id === Number(id))
+  const { product, loading } = useProductId(id)
 
   const addToCart = () => {
+    if (!product) return
     const cart = JSON.parse(localStorage.getItem('cart') || '[]')
     cart.push(product)
     localStorage.setItem('cart', JSON.stringify(cart))
     window.dispatchEvent(new Event('cartUpdated'))
-    alert(`${product.title} agregado al carrito`)
+    alert(`${product.nombre} agregado al carrito`)
   }
 
   const styles = {
@@ -24,6 +26,34 @@ function Producto() {
       'flex flex-col justify-center max-h-[300px] md:min-h-[400px]  lg:max-h-[500px] w-auto md:w-[300px] lg:w-[400px] overflow-hidden rounded-lg ',
     containerContent: ' flex-1 flex flex-col md:flex-row gap-8 md:gap-16',
     upperContent: 'flex flex-col gap-10 justify-between mb-8 md:mb-0  ',
+  }
+
+  if (loading) {
+    return (
+      <div className='container-body-normal gradient-main'>
+        <main className='main-style !py-20 flex items-center justify-center'>
+          <p className='format-text-p'>Cargando producto...</p>
+        </main>
+      </div>
+    )
+  }
+
+  if (!product) {
+    return (
+      <div className='container-body-normal gradient-main'>
+        <main className='main-style !py-20 flex items-center justify-center'>
+          <div className='flex flex-col gap-5 items-center'>
+            <p className='format-text-p'>Producto no encontrado</p>
+            <Link
+              to='/categoria'
+              className='format-text-p text-[var(--bg-button)] hover:text-[var(--bg-button-hover)]'
+            >
+              Volver a categorías
+            </Link>
+          </div>
+        </main>
+      </div>
+    )
   }
 
   return (
@@ -44,21 +74,21 @@ function Producto() {
             <div className={styles.containerContent}>
               <div className={styles.imageBox}>
                 <img
-                  src={product.image}
-                  alt={product.title}
+                  src={product.imagen || product.image}
+                  alt={product.nombre }
                   className='rounded-lg object-cover object-center h-full w-full'
                 />
               </div>
               <div className={styles.upperContent}>
                 <div>
                   <h1 className='format-text-h2 tracking-wider'>
-                    {product.title}
+                    {product.nombre}
                   </h1>
                   <h2 className='format-text-h2 !text-amber-300 !font-bold !text-left !mb-0'>
-                    ${product.price}
+                    {formatPriceCLP(product.precio)}
                   </h2>
                   <p className='format-text-p !text-left'>
-                    Categoría: {product.category}
+                    Categoría: {product.categoria }
                   </p>
                 </div>
                 <button

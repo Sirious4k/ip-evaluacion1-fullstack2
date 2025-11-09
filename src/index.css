@@ -18,7 +18,6 @@
   --hover-alt: #00ffea;
 }
 
-/* General */
 *::before,
 *::after {
   margin: 0;
@@ -58,17 +57,12 @@ li {
       var(--bg-for-gradient));
 }
 
-
-/* Container styles */
 .container-body-normal {
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 100px);
 }
 
-
-
-/* Main styles */
 .main-style {
   flex-grow: 1;
   padding: 50px 16.25px 50px 16.25px;
@@ -82,7 +76,6 @@ li {
   }
 }
 
-/* Fonts*/
 .format-text-p {
   font-size: 1.8rem;
   text-align: center;
@@ -149,7 +142,6 @@ a {
   margin: 0 auto;
 }
 
-/* Iconos */
 .icon-size {
   width: 3.2rem;
   height: 3.2rem;
@@ -163,16 +155,12 @@ a {
   }
 }
 
-/* Items image size */
-
 .size-items {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
 }
-
-/* Form */
 
 input {
   max-width: 100%;
@@ -199,13 +187,9 @@ input:focus {
   text-transform: uppercase;
 }
 
-/* drop */
-
 .show {
   display: block;
 }
-
-/* Registro y login */
 
 .volver-button {
   color: black;

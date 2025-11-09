@@ -2,7 +2,6 @@ function DashboardCard({
   title,
   value,
   percent,
-  // eslint-disable-next-line
   icon: Icon,
   subtitle,
   color,

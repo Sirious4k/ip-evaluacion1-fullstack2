@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { formatPriceCLP } from '../utils/products'
 
 function ItemCard({ product }) {
   const styles = {
@@ -16,13 +17,13 @@ function ItemCard({ product }) {
       <div className={styles.boxItemSectionTwo}>
         <div className={styles.containerImage}>
           <img
-            src={product.image}
-            alt={product.title}
-            className='size-items'
+            src={product.imagen || product.image}
+            alt={product.nombre }
+            className='w-full h-full object-contain  object-center rounded-md bg-white'
           />
         </div>
-        <h1 className={styles.h1Items}>{product.title}</h1>
-        <h2 className={styles.h2Items}>${product.price}</h2>
+        <h1 className={styles.h1Items}>{product.nombre}</h1>
+        <h2 className={styles.h2Items}>{formatPriceCLP(product.precio)}</h2>
       </div>
     </Link>
   )

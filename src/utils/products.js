@@ -1,43 +1,17 @@
-import notebook from '../assets/images/notebook.webp'
-import ryzen5600 from '../assets/images/ryzen5600.webp'
-import ps5 from '../assets/images/playstation5.webp'
-import joystick from '../assets/images/joystick.webp'
-import monitor144 from '../assets/images/monitor144.webp'
+export async function getProducts(){
+  try {
+    const response = await fetch('http://localhost:8080/api/productos')
+    if (!response.ok) throw new Error('Error al obtener productos')
+      return await response.json()
 
-export const products = [
-  {
-    id: 1,
-    title: 'Laptop Gamer X15',
-    category: 'Computadoras',
-    price: '1.200.000',
-    image: notebook,
-  },
-  {
-    id: 2,
-    title: 'PC Ryzen 5600',
-    category: 'Computadoras',
-    price: '800.000',
-    image: ryzen5600,
-  },
-  {
-    id: 3,
-    title: 'PlayStation 5',
-    category: 'Consolas',
-    price: '450.000',
-    image: ps5,
-  },
-  {
-    id: 4,
-    title: 'Joystick Xbox Inalambrico',
-    category: 'Accesorios',
-    price: '35.000',
-    image: joystick,
-  },
-  {
-    id: 5,
-    title: "Monitor 24'' 144Hz",
-    category: 'Periféricos',
-    price: '120.000',
-    image: monitor144,
-  },
-]
+  } catch (error) {
+    console.error ('error al obtener productos', error)
+    return []
+  }
+}
+
+export function formatPriceCLP(price) {
+  if (price === null || price === undefined) return '$0'
+  const numPrice = typeof price === 'string' ? Number(price.replace(/\./g, '')) : Number(price)
+  return `$${numPrice.toLocaleString('es-CL', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`
+}

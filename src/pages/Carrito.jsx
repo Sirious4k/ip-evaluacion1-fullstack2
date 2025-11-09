@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { initForm } from '../utils/pago-validation.js'
+import { formatPriceCLP } from '../utils/products'
 import CloseIcon from '../assets/icons/icon-close.svg?react'
 
 function Carrito() {
@@ -7,7 +8,9 @@ function Carrito() {
 
   const updateCart = () => {
     const stored = JSON.parse(localStorage.getItem('cart') || '[]')
-    const filterItems = stored.filter(item => item && item.price)
+    const filterItems = stored.filter(
+      item => item && (item.precio || item.price),
+    )
     if (filterItems.length !== stored.length) {
       localStorage.setItem('cart', JSON.stringify(filterItems))
     }
@@ -59,17 +62,17 @@ function Carrito() {
                     <div className='flex items-center gap-5 '>
                       <div className='max-w-[100px] h-[100px] overflow-hidden'>
                         <img
-                          src={item.image}
-                          alt={item.title}
+                          src={item.imagen || item.image}
+                          alt={item.nombre || item.titulo || item.title}
                           className='w-full h-full object-contain  object-center rounded-md bg-white'
                         />
                       </div>
                       <div>
                         <h1 className='format-text-h2 tracking-wider'>
-                          {item.title}
+                          {item.nombre || item.titulo || item.title}
                         </h1>
                         <h2 className='format-text-h2 !text-amber-300'>
-                          ${item.price}
+                          {formatPriceCLP(item.precio || item.price)}
                         </h2>
                       </div>
                     </div>
@@ -166,14 +169,19 @@ function Carrito() {
             <div className='flex justify-between items-center mt-10 border-t border-[var(--hover-alt)]/30 pt-5'>
               <h1 className='format-text-h2 tracking-wider'>Subtotal</h1>
               <h2 className='format-text-h2 !text-amber-300'>
-                $
-                {cart
-                  .reduce(
-                    (total, item) =>
-                      total + Number(item.price.replace(/\./g, '')),
+                {formatPriceCLP(
+                  cart.reduce(
+                    (total, item) => {
+                      const price = item.precio || item.price
+                      const numPrice =
+                        typeof price === 'string'
+                          ? Number(price.replace(/\./g, ''))
+                          : Number(price)
+                      return total + numPrice
+                    },
                     0,
-                  )
-                  .toLocaleString('es-CL')}
+                  ),
+                )}
               </h2>
             </div>
             <div className={formStyles.boxButton}>

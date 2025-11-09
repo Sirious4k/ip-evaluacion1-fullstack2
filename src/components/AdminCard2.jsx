@@ -1,4 +1,3 @@
-// eslint-disable-next-line
 function DashboardCard({ title, icon: Icon, subtitle, color }) {
   return (
     <div

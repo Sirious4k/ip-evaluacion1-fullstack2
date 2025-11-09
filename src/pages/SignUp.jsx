@@ -143,7 +143,6 @@ function SignUp() {
                 className={formStyles.input}
               />
 
-              {/* Repeticion contraseña */}
               <label
                 htmlFor='repite-contrasena'
                 className={formStyles.formatTextH2}

@@ -1,10 +1,12 @@
 import Button from '../components/ButtonLinkComponent.jsx'
 import BoxComponent from '../components/BoxComponent.jsx'
 import ItemCard from '../components/ItemsCards.jsx'
-import { products as allProducts } from '../utils/products'
+import { useProducts } from '../hooks/useProducts.js'
 import { Link } from 'react-router-dom'
 
 function Index() {
+  const { products, loading } = useProducts()
+
   const heroStyles = {
     container:
       'flex items-center w-full min-h-[100vh] pt-[140px] p-8 bg-[url("/header-img.png")] bg-cover bg-center bg-black/50 bg-blend-multiply text-white',
@@ -75,12 +77,18 @@ function Index() {
             </Link>
           </div>
           <div className={sectionTwoStyles.containerBoxItems}>
-            {allProducts.map(product => (
-              <ItemCard
-                key={product.id}
-                product={product}
-              />
-            ))}
+            {loading ? (
+              <p className='format-text-p'>Cargando productos...</p>
+            ) : products.length === 0 ? (
+              <p className='format-text-p'>No hay productos disponibles.</p>
+            ) : (
+              products.map(product => (
+                <ItemCard
+                  key={product.id}
+                  product={product}
+                />
+              ))
+            )}
           </div>
         </section>
       </main>

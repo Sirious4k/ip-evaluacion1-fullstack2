@@ -1,15 +1,17 @@
-import { useEffect } from 'react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { initNavDropdown } from '../utils/dropdown'
 import LogoComponent from './LogoComponent'
 import IconUser from '../assets/icons/icon-nav-user.svg?react'
 import { Link } from 'react-router-dom'
 import Button from './ButtonLinkComponent'
 import IconCart from '../assets/icons/icon-cart.svg?react'
-import { products as allProducts } from '../utils/products'
+import { useProducts } from '../hooks/useProducts'
 
 function Nav() {
+  const { products } = useProducts()
+  const categories = Array.from(new Set(products.map(p => p.categoria)))
   const [items, setItems] = useState([])
+
 
   useEffect(() => {
     const cleanup = initNavDropdown()
@@ -33,7 +35,6 @@ function Nav() {
     }
   }, [])
 
-  const categories = Array.from(new Set(allProducts.map(p => p.category)))
 
   const styles = {
     mainNav:
