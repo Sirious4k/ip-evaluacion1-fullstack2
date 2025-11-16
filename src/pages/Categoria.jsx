@@ -12,14 +12,14 @@ function Categoria() {
 
 
   const allCategories = Array.from(
-    new Set(products.map(p => p.categoria || p.category)),
+    new Set(products.map(p => p.categoria)),
   )
 
   const filteredProducts =
     selectedCategory === null
       ? products
       : products.filter(
-          p => (p.categoria || p.category) === selectedCategory,
+          p => (p.categoria) === selectedCategory,
         )
 
   if (loading) {
