@@ -1,13 +1,15 @@
+import { useState } from 'react'
 import ArrowIcon from '../assets/icons/icon-arrow.svg?react'
-import { useEffect } from 'react'
-import { initFormLogin } from '../utils/form-validation-login'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import LogoComponent from '../components/LogoComponent'
+import { loginUser, persistToken } from '../utils/auth'
 
 function LogIn() {
-  useEffect(() => {
-    initFormLogin()
-  }, [])
+  const navigate = useNavigate()
+  const [form, setForm] = useState({ username: '', password: '' })
+  const [errors, setErrors] = useState({})
+  const [globalError, setGlobalError] = useState('')
+  const [submitting, setSubmitting] = useState(false)
 
   const styles = {
     mainStyle:
@@ -26,12 +28,56 @@ function LogIn() {
     formatTextH2: 'format-text-h2 !mb-0 !text-black',
     boxButton: 'flex w-full col-2 justify-end',
     submitButton:
-      'w-full md:w-[200px] py-[1rem] px-[0.5rem] mt-12 text-center text-[1.8rem] bg-[var(--bg-button)] text-[var(--white-variant)] cursor-pointer transition ease-in-out duration-300 hover:bg-[var(--bg-button-hover)] hover:text-[var(--white-variant-hover)]',
+      'w-full md:w-[200px] py-[1rem] px-[0.5rem] mt-12 text-center text-[1.8rem] bg-[var(--bg-button)] text-[var(--white-variant)] cursor-pointer transition ease-in-out duration-300 hover:bg-[var(--bg-button-hover)] hover:text-[var(--white-variant-hover)] disabled:opacity-60 disabled:cursor-not-allowed',
 
     linkLoginButton:
       'format-text-p cursor-auto !text-black/100 !not-italic !text-[1.6rem]',
     loginButton:
       '!inline-block cursor-pointer !text-[var(--bg-button)] hover:!text-[var(--bg-button-hover)] !font-black transition-color duration-300 ease-in-out',
+  }
+
+  const handleChange = e => {
+    const { name, value } = e.target
+    setForm(prev => ({ ...prev, [name]: value }))
+    setErrors(prev => ({ ...prev, [name]: '' }))
+    setGlobalError('')
+  }
+
+  const validateForm = () => {
+    const newErrors = {}
+
+    if (!form.username.trim()) newErrors.username = 'Ingrese su usuario o correo'
+    if (!form.password.trim()) {
+      newErrors.password = 'Debe ingresar su contraseña'
+    } else if (form.password.trim().length < 8) {
+      newErrors.password = 'La contraseña debe tener al menos 8 caracteres'
+    }
+
+    return newErrors
+  }
+
+  const handleSubmit = async event => {
+    event.preventDefault()
+    const validation = validateForm()
+    if (Object.keys(validation).length) {
+      setErrors(validation)
+      return
+    }
+
+    setSubmitting(true)
+    setGlobalError('')
+    try {
+      const data = await loginUser({
+        username: form.username.trim(),
+        password: form.password,
+      })
+      if (data?.token) persistToken(data.token)
+      navigate('/')
+    } catch (error) {
+      setGlobalError(error.message || 'No se pudo iniciar sesion')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -53,22 +99,22 @@ function LogIn() {
           <form
             id='loginForm'
             className={formStyles.formBox}
+            onSubmit={handleSubmit}
           >
             <div className={formStyles.leftSide}>
               <label
                 htmlFor='correo-log'
                 className={formStyles.formatTextH2}
               >
-                Correo:
-                <span
-                  className='error'
-                  id='error-correo-login'
-                />
-                <span />
+                Usuario o correo:
+                <span className='error'>{errors.username}</span>
               </label>
               <input
-                type='email'
+                type='text'
                 id='correo-log'
+                name='username'
+                value={form.username}
+                onChange={handleChange}
                 className={formStyles.input}
               />
 
@@ -77,14 +123,14 @@ function LogIn() {
                 className={formStyles.formatTextH2}
               >
                 Contraseña:
-                <span
-                  className='error'
-                  id='error-contrasena-login'
-                ></span>
+                <span className='error'>{errors.password}</span>
               </label>
               <input
                 type='password'
                 id='contrasena-log'
+                name='password'
+                value={form.password}
+                onChange={handleChange}
                 className={formStyles.input}
               />
               <div className=' w-full !text-left flex justify-between'>
@@ -105,12 +151,14 @@ function LogIn() {
                   Panel
                 </Link>
               </div>
+              {globalError && <p className='error !ml-0'>{globalError}</p>}
               <div className={formStyles.boxButton}>
                 <button
                   type='submit'
                   className={formStyles.submitButton}
+                  disabled={submitting}
                 >
-                  Iniciar sesión
+                  {submitting ? 'Ingresando...' : 'Iniciar sesion'}
                 </button>
               </div>
             </div>
