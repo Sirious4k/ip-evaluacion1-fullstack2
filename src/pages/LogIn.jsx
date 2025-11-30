@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ArrowIcon from '../assets/icons/icon-arrow.svg?react'
 import { Link, useNavigate } from 'react-router-dom'
 import LogoComponent from '../components/LogoComponent'
-import { loginUser, persistToken } from '../utils/auth'
+import { getSession, loginUser, persistSession } from '../utils/auth'
 
 function LogIn() {
   const navigate = useNavigate()
@@ -10,6 +10,11 @@ function LogIn() {
   const [errors, setErrors] = useState({})
   const [globalError, setGlobalError] = useState('')
   const [submitting, setSubmitting] = useState(false)
+
+  useEffect(() => {
+    const session = getSession()
+    if (session.token) navigate('/', { replace: true })
+  }, [navigate])
 
   const styles = {
     mainStyle:
@@ -67,11 +72,14 @@ function LogIn() {
     setSubmitting(true)
     setGlobalError('')
     try {
+      const cleanUsername = form.username.trim()
       const data = await loginUser({
-        username: form.username.trim(),
+        username: cleanUsername,
         password: form.password,
       })
-      if (data?.token) persistToken(data.token)
+      if (data?.token) {
+        persistSession({ token: data.token, username: cleanUsername })
+      }
       navigate('/')
     } catch (error) {
       setGlobalError(error.message || 'No se pudo iniciar sesion')

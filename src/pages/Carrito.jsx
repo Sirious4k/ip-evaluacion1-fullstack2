@@ -1,10 +1,16 @@
 import { useEffect, useState } from 'react'
-import { initForm } from '../utils/pago-validation.js'
+import { useNavigate } from 'react-router-dom'
 import { formatPriceCLP } from '../utils/products'
 import CloseIcon from '../assets/icons/icon-close.svg?react'
+import { createVenta } from '../utils/ventas'
+import { getSession } from '../utils/auth'
 
 function Carrito() {
   const [cart, setCart] = useState([])
+  const [submitting, setSubmitting] = useState(false)
+  const [message, setMessage] = useState('')
+  const [error, setError] = useState('')
+  const navigate = useNavigate()
 
   const updateCart = () => {
     const stored = JSON.parse(localStorage.getItem('cart') || '[]')
@@ -19,7 +25,6 @@ function Carrito() {
 
   useEffect(() => {
     updateCart()
-    initForm()
     window.addEventListener('cartUpdated', updateCart)
     return () => window.removeEventListener('cartUpdated', updateCart)
   }, [])
@@ -42,6 +47,43 @@ function Carrito() {
     submitButton:
       'w-full md:w-[200px] py-[1rem] px-[0.5rem] mt-12 text-center text-[1.8rem] bg-[var(--bg-button)] text-[var(--white-variant)] cursor-pointer transition ease-in-out duration-300 hover:bg-[var(--bg-button-hover)] hover:text-[var(--white-variant-hover)]',
   }
+
+  const handleSubmit = async event => {
+    event.preventDefault()
+    setError('')
+    setMessage('')
+
+    if (cart.length === 0) {
+      setError('Tu carrito está vacío')
+      return
+    }
+
+    const { token } = getSession()
+    if (!token) {
+      setError('Debes iniciar sesión para completar la compra')
+      navigate('/login')
+      return
+    }
+
+    const itemsPayload = cart.map(item => ({
+      productoId: item.id,
+      cantidad: item.cantidad || 1,
+    }))
+
+    setSubmitting(true)
+    try {
+      await createVenta(itemsPayload, token)
+      setMessage('Compra realizada con éxito')
+      localStorage.removeItem('cart')
+      window.dispatchEvent(new Event('cartUpdated'))
+      setCart([])
+    } catch (err) {
+      setError(err.message || 'No se pudo completar la compra')
+    } finally {
+      setSubmitting(false)
+    }
+  }
+
   return (
     <div className='container-body-normal gradient-main'>
       <main className='main-style !py-20 flex items-center md:items-start'>
@@ -90,80 +132,14 @@ function Carrito() {
           </div>
 
           <form
-            action=''
-            id='pagoForm'
+            onSubmit={handleSubmit}
             className={formStyles.formBox}
           >
             <div className={formStyles.leftSide}>
-              <label
-                htmlFor='nombre-pago'
-                className={formStyles.formatTextH2}
-              >
-                Nombre:
-                <span
-                  className='error'
-                  id='error-nombre'
-                />
-                <span />
-              </label>
-              <input
-                type='text'
-                id='nombre-pago'
-                className={formStyles.input}
-              />
-
-              <label
-                htmlFor='telefono-pago'
-                className={formStyles.formatTextH2}
-              >
-                Teléfono:
-                <span
-                  className='error'
-                  id='error-telefono'
-                />
-                <span />
-              </label>
-              <div className={formStyles.inputPhone}>
-                <span className='format-text-p '>+56</span>
-                <input
-                  type='tel'
-                  id='telefono-pago'
-                  className={formStyles.input}
-                />
-              </div>
-
-              <label
-                htmlFor='correo-pago'
-                className={formStyles.formatTextH2}
-              >
-                Correo:
-                <span
-                  className='error'
-                  id='error-correo'
-                />
-                <span />
-              </label>
-              <input
-                type='email'
-                id='correo-pago'
-                className={formStyles.input}
-              />
-
-              <label
-                htmlFor='direccion-pago'
-                className={formStyles.formatTextH2}
-              >
-                Dirección:
-                <span
-                  className='error'
-                  id='error-direccion'
-                ></span>
-              </label>
-              <input
-                id='direccion-pago'
-                rows='1'
-                className={formStyles.input}
-              ></input>
+              {error && <p className='error !ml-0'>{error}</p>}
+              {message && (
+                <p className='format-text-p !text-green-400'>{message}</p>
+              )}
             </div>
 
             <div className='flex justify-between items-center mt-10 border-t border-[var(--hover-alt)]/30 pt-5'>
@@ -188,8 +164,9 @@ function Carrito() {
               <button
                 type='submit'
                 className={formStyles.submitButton}
+                disabled={submitting}
               >
-                Pagar
+                {submitting ? 'Procesando...' : 'Pagar'}
               </button>
             </div>
           </form>

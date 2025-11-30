@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ArrowIcon from '../assets/icons/icon-arrow.svg?react'
 import { Link, useNavigate } from 'react-router-dom'
 import LogoComponent from '../components/LogoComponent'
-import { persistToken, registerUser } from '../utils/auth'
+import { getSession, persistSession, registerUser } from '../utils/auth'
 
 function SignUp() {
   const navigate = useNavigate()
@@ -17,6 +17,11 @@ function SignUp() {
   const [errors, setErrors] = useState({})
   const [submitting, setSubmitting] = useState(false)
   const [globalError, setGlobalError] = useState('')
+
+  useEffect(() => {
+    const session = getSession()
+    if (session.token) navigate('/', { replace: true })
+  }, [navigate])
 
   const styles = {
     mainStyle:
@@ -105,7 +110,9 @@ function SignUp() {
       }
 
       const data = await registerUser(payload)
-      if (data?.token) persistToken(data.token)
+      if (data?.token) {
+        persistSession({ token: data.token, username: payload.username })
+      }
       navigate('/')
     } catch (error) {
       setGlobalError(error.message || 'No se pudo completar el registro')

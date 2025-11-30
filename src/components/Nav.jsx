@@ -6,12 +6,13 @@ import { Link } from 'react-router-dom'
 import Button from './ButtonLinkComponent'
 import IconCart from '../assets/icons/icon-cart.svg?react'
 import { useProducts } from '../hooks/useProducts'
+import { clearSession, getSession } from '../utils/auth'
 
 function Nav() {
   const { products } = useProducts()
   const categories = Array.from(new Set(products.map(p => p.categoria)))
   const [items, setItems] = useState([])
-
+  const [user, setUser] = useState(getSession())
 
   useEffect(() => {
     const cleanup = initNavDropdown()
@@ -25,16 +26,23 @@ function Nav() {
 
   useEffect(() => {
     updateCartCount()
+    const handleStorage = () => setUser(getSession())
 
     window.addEventListener('cartUpdated', updateCartCount)
     window.addEventListener('storage', updateCartCount)
+    window.addEventListener('storage', handleStorage)
 
     return () => {
       window.removeEventListener('cartUpdated', updateCartCount)
       window.removeEventListener('storage', updateCartCount)
+      window.removeEventListener('storage', handleStorage)
     }
   }, [])
 
+  const handleLogout = () => {
+    clearSession()
+    setUser({ token: null, username: null })
+  }
 
   const styles = {
     mainNav:
@@ -58,10 +66,25 @@ function Nav() {
         <div className={styles.sectionTopNav}>
           <LogoComponent />
           <div className={styles.iconsTopNav}>
-            <Link to='/login'>
-              <IconUser className='icon-size hover:!text-[var(--hover-alt)] transition-color ease-in-out duration-300' />
-            </Link>
-            <Button href='/signup'>Registro</Button>
+            {user?.token ? (
+              <div className='flex items-center gap-4 text-white'>
+                <IconUser className='icon-size' />
+                <span className='text-lg'>{user.username}</span>
+                <button
+                  onClick={handleLogout}
+                  className='py-[1rem] px-[5rem] text-center  font-light format-text-p !not-italic bg-[var(--bg-button)] text-[var(--white-variant)] cursor-pointer transition ease-in-out duration-300 hover:bg-[var(--bg-button-hover)] hover:text-[var(--white-variant-hover)]'
+                >
+                  Cerrar sesion
+                </button>
+              </div>
+            ) : (
+              <>
+                <Link to='/login'>
+                  <IconUser className='icon-size hover:!text-[var(--hover-alt)] transition-color ease-in-out duration-300' />
+                </Link>
+                <Button href='/signup'>Registro</Button>
+              </>
+            )}
           </div>
         </div>
         <ul className={styles.containerItemsNav}>

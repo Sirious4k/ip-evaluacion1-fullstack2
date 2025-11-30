@@ -1,4 +1,6 @@
 const API_BASE = import.meta.env.DEV ? '' : import.meta.env.VITE_API_URL
+const STORAGE_TOKEN = 'authToken'
+const STORAGE_USER = 'authUser'
 
 async function request(path, options = {}) {
   if (!API_BASE && !import.meta.env.DEV) {
@@ -44,6 +46,18 @@ export async function loginUser(credentials) {
   return data
 }
 
-export function persistToken(token) {
-  if (token) localStorage.setItem('authToken', token)
+export function persistSession({ token, username }) {
+  if (token) localStorage.setItem(STORAGE_TOKEN, token)
+  if (username) localStorage.setItem(STORAGE_USER, username)
+}
+
+export function clearSession() {
+  localStorage.removeItem(STORAGE_TOKEN)
+  localStorage.removeItem(STORAGE_USER)
+}
+
+export function getSession() {
+  const token = localStorage.getItem(STORAGE_TOKEN)
+  const username = localStorage.getItem(STORAGE_USER)
+  return { token, username }
 }
