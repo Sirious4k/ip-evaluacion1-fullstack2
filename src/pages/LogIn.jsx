@@ -78,7 +78,7 @@ function LogIn() {
         password: form.password,
       })
       if (data?.token) {
-        persistSession({ token: data.token, username: cleanUsername })
+        persistSession({ token: data.token, username: cleanUsername, role: data.role })
       }
       navigate('/')
     } catch (error) {
@@ -151,12 +151,6 @@ function LogIn() {
                     {' '}
                     Regístrate aquí.{' '}
                   </span>
-                </Link>
-                <Link
-                  to='/panel'
-                  className='text-2xl'
-                >
-                  Panel
                 </Link>
               </div>
               {globalError && <p className='error !ml-0'>{globalError}</p>}

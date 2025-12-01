@@ -36,6 +36,7 @@ export async function createVenta(items, token) {
     method: 'POST',
     body: JSON.stringify({ items }),
     headers: {
+      'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
   })
