@@ -11,6 +11,7 @@ import Producto from './pages/Producto.jsx'
 import Carrito from './pages/Carrito.jsx'
 import Panel from './pages/Panel.jsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import PrivateAdminRoute from './components/PrivateAdminRoute.jsx'
 
 function App() {
   return (
@@ -54,7 +55,11 @@ function App() {
           />
           <Route
             path='/panel'
-            element={<Panel />}
+            element={
+              <PrivateAdminRoute>
+                <Panel />
+              </PrivateAdminRoute>
+            }
           />
         </Route>
       </Routes>

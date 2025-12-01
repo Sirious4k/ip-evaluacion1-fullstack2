@@ -70,7 +70,7 @@ function Nav() {
               <div className='flex items-center gap-4 text-white'>
                 <IconUser className='icon-size' />
                 <span className='text-lg'>{user.username}</span>
-                {user.role === 'ADMIN' && (
+                {user?.role === 'ADMIN' && (
                   <Link
                   to='/panel'
                   className='py-[1rem] px-[5rem] text-center font-light
