@@ -70,6 +70,16 @@ function Nav() {
               <div className='flex items-center gap-4 text-white'>
                 <IconUser className='icon-size' />
                 <span className='text-lg'>{user.username}</span>
+                {user.role === 'ADMIN' && (
+                  <Link
+                  to='/panel'
+                  className='py-[1rem] px-[5rem] text-center font-light
+                    format-text-p !not-italic bg-[var(--bg-button)] text-[var(--white-variant)]
+                    hover:bg-[var(--bg-button-hover)]'
+                >
+                  Panel
+                </Link>
+                )}
                 <button
                   onClick={handleLogout}
                   className='py-[1rem] px-[5rem] text-center  font-light format-text-p !not-italic bg-[var(--bg-button)] text-[var(--white-variant)] cursor-pointer transition ease-in-out duration-300 hover:bg-[var(--bg-button-hover)] hover:text-[var(--white-variant-hover)]'
